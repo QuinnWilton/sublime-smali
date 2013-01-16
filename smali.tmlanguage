@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Smali</string>
+	<key>scopeName</key>
+	<string>source.smali</string>
+	<key>fileTypes</key>
+	<array>
+		<string>Smali</string>
+	</array>
+	<key>foldingStartMarker</key>
+	<string>\.method</string>
+	<key>foldingStopMarker</key>
+	<string>\.end method</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>match</key>
+			<string>^(#|//).*?$</string>
+			<key>name</key>
+			<string>comment.line.smali</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(v\d|p\d)</string>
+			<key>name</key>
+			<string>variable.parameter.smali</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\.[a-zA-Z]+</string>
+			<key>name</key>
+			<string>storage.type.smali</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(private|protected|public|static|final|synchronized|bridge|varargs|native|abstract|strictfp|synthetic|constructor|declared-synchronized|interface|enum|annotation|volatile|transient)\b</string>
+			<key>name</key>
+			<string>storage.modifier.smali</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(&lt;[a-zA-Z]+&gt;|\s[a-zA-Z1-9]+\()</string>
+			<key>name</key>
+			<string>entity.name.function.smali</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>&gt;[a-zA-Z1-9]+\(</string>
+			<key>name</key>
+			<string>storage.type.smali</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\s[a-zA-Z1-9]+:</string>
+			<key>name</key>
+			<string>constant.other.smali</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>^(\s+)*[A-Za-z0-9\-\_\/]+</string>
+			<key>name</key>
+			<string>keyword.control.smali</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(\s[0-9]+?$|0x[0-9a-f]+)</string>
+			<key>name</key>
+			<string>constant.numeric.smali</string>
+		</dict>
+	</array>
+</dict>
+</plist>
