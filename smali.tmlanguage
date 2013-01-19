@@ -70,6 +70,12 @@
 			<key>name</key>
 			<string>constant.numeric.smali</string>
 		</dict>
+		<dict>
+			<key>match</key>
+			<string>\".*\"</string>
+			<key>name</key>
+			<string>constant.character.smali</string>
+		</dict>
 	</array>
 </dict>
 </plist>
