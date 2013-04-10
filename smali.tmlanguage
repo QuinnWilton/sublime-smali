@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
+<plist version="1.1">
 <dict>
 	<key>name</key>
 	<string>Smali</string>
@@ -18,13 +18,13 @@
 	<array>
 		<dict>
 			<key>match</key>
-			<string>^(#|//).*?$</string>
+			<string>^[ ]*#.*?$</string>
 			<key>name</key>
 			<string>comment.line.smali</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(v\d|p\d)</string>
+			<string>(v|p)([123456789]+\d*|0)</string>
 			<key>name</key>
 			<string>variable.parameter.smali</string>
 		</dict>
