@@ -47,7 +47,7 @@
         },
         {
             "comment": "Method signature and body",
-            "begin": "^[ \\t]*(\\.method)[ \\t]*((?:(?:declared-synchronized|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[ \\t]+)*)(constructor )?(<init>|<clinit>|(?:[\\p{L}_][\\p{L}\\d_\\$]*))\\(((?:\\[?(?:Z|B|S|C|I|J|F|D|L(?:[\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*);))*)\\)(?:(V)|\\[?(Z|B|S|C|I|J|F|D)|\\[?(?:(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)))(?=[ \\t]*(#.*)?$)",
+            "begin": "^[ \\t]*(\\.method)[ \\t]*((?:(?:declared-synchronized|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[ \\t]+)*)(constructor )?(<init>|<clinit>|(?:[$\\p{L}_][\\p{L}\\d_\\$]*))\\(((?:\\[?(?:Z|B|S|C|I|J|F|D|L(?:[\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*);))*)\\)(?:(V)|\\[?(Z|B|S|C|I|J|F|D)|\\[?(?:(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)))(?=[ \\t]*(#.*)?$)",
             "beginCaptures": {
                 "1": { "name": "constant.language.smali" },
                 "2": { "name": "variable.parameter.smali" },

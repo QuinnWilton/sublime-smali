@@ -71,7 +71,7 @@
 .method
 .end method
 
-.method public static final declared-synchronized onCreate(Landroid/app/Activity;)V
+.method public static final declared-synchronized synthetic $onCreate(Landroid/app/Activity;)V
 .end method
 
 .method public static final main([ILjava/lang/String;)[Ljava/lang;

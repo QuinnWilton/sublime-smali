@@ -136,7 +136,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>^[ \t]*(\.method)[ \t]*((?:(?:declared-synchronized|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[ \t]+)*)(constructor )?(&lt;init&gt;|&lt;clinit&gt;|(?:[\p{L}_][\p{L}\d_\$]*))\(((?:\[?(?:Z|B|S|C|I|J|F|D|L(?:[\p{L}_][\p{L}\d_\$]*(?:/[\p{L}_][\p{L}\d_\$]*)*);))*)\)(?:(V)|\[?(Z|B|S|C|I|J|F|D)|\[?(?:(L)([\p{L}_][\p{L}\d_\$]*(?:/[\p{L}_][\p{L}\d_\$]*)*)(;)))(?=[ \t]*(#.*)?$)</string>
+			<string>^[ \t]*(\.method)[ \t]*((?:(?:declared-synchronized|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[ \t]+)*)(constructor )?(&lt;init&gt;|&lt;clinit&gt;|(?:[$\p{L}_][\p{L}\d_\$]*))\(((?:\[?(?:Z|B|S|C|I|J|F|D|L(?:[\p{L}_][\p{L}\d_\$]*(?:/[\p{L}_][\p{L}\d_\$]*)*);))*)\)(?:(V)|\[?(Z|B|S|C|I|J|F|D)|\[?(?:(L)([\p{L}_][\p{L}\d_\$]*(?:/[\p{L}_][\p{L}\d_\$]*)*)(;)))(?=[ \t]*(#.*)?$)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
