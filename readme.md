@@ -20,7 +20,7 @@ Features
 * Line-level syntax validation
   * Incorrectly formatted instructions are highlighted red
   * Register and literal ranges are validated
-* _Objectively_ better than your current Smali highlighter 
+* _Objectively_ better than your current Smali highlighter
 * Includes the color purple!
 
 ![](http://i.imgur.com/v9zd2Pa.png "Money shot 1")
