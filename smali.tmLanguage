@@ -321,9 +321,38 @@
 						</dict>
 					</dict>
 					<key>comment</key>
-					<string>Gotta catch 'em all!</string>
+					<string>Catch exceptions</string>
 					<key>match</key>
 					<string>^[ \t]*(\.catch)[ \t]+(?:(L)([\p{L}_][\p{L}\d_\$]*(?:/[\p{L}_][\p{L}\d_\$]*)*)(;))[ \t]+{(:[A-Za-z_\d]+)[ \t]+\.\.[ \t]+(:[A-Za-z_\d]+)}[ \t]+(:[A-Za-z_\d]+)(?=[ \t]*(#.*)?$)</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>constant.language.smali</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.smali</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.smali</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.smali</string>
+						</dict>
+					</dict>
+					<key>comment</key>
+					<string>Gotta catch 'em all!</string>
+					<key>match</key>
+					<string>^[ \t]*(\.catchall)[ \t]+{(:[A-Za-z_\d]+)[ \t]+\.\.[ \t]+(:[A-Za-z_\d]+)}[ \t]+(:[A-Za-z_\d]+)(?=[ \t]*(#.*)?$)</string>
 				</dict>
 				<dict>
 					<key>comment</key>

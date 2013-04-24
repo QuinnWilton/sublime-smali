@@ -86,6 +86,7 @@
   .line 1
 
   .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+  .catchall {:try_start_1e .. :try_end_2d} :catchall_38
 
   .parameter "someparam"
   .parameter "I can \"escape\" string\n properly!"

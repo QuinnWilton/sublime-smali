@@ -89,7 +89,7 @@
                     }
                 },
                 {
-                    "comment": "Gotta catch 'em all!",
+                    "comment": "Catch exceptions",
                     "match": "^[ \\t]*(\\.catch)[ \\t]+(?:(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;))[ \\t]+{(:[A-Za-z_\\d]+)[ \\t]+\\.\\.[ \\t]+(:[A-Za-z_\\d]+)}[ \\t]+(:[A-Za-z_\\d]+)(?=[ \\t]*(#.*)?$)",
                     "captures": {
                         "1": { "name": "constant.language.smali" },
@@ -99,6 +99,16 @@
                         "5": { "name": "keyword.control.smali" },
                         "6": { "name": "keyword.control.smali" },
                         "7": { "name": "keyword.control.smali" }
+                    }
+                },
+                {
+                    "comment": "Gotta catch 'em all!",
+                    "match": "^[ \\t]*(\\.catchall)[ \\t]+{(:[A-Za-z_\\d]+)[ \\t]+\\.\\.[ \\t]+(:[A-Za-z_\\d]+)}[ \\t]+(:[A-Za-z_\\d]+)(?=[ \\t]*(#.*)?$)",
+                    "captures": {
+                        "1": { "name": "constant.language.smali" },
+                        "2": { "name": "keyword.control.smali" },
+                        "3": { "name": "keyword.control.smali" },
+                        "4": { "name": "keyword.control.smali" }
                     }
                 },
                 {
