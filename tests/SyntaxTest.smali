@@ -22,27 +22,18 @@
 .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
 .annotation system Landroid/view/ViewDebug$ExportedProperty;
 
-.annotation system Ldalvik/annotation/EnclosingClass;
+.annotation system LsomeClass;
   value = Lcom/google/ads/AdRequest;
-.end annotation
-
-.annotation system LsomeClass;
-  value = .subannotation Lcom/a/a/a/c/b;
-.end annotation
-
-.annotation system LsomeClass;
   value = .enum Ljava/lang/annotation/RetentionPolicy;->RUNTIME:Ljava/lang/annotation/RetentionPolicy;
+  value = .subannotation Lcom/a/a/a/c/b;
+  value = Lcom/xxactory/XfactoryActivity$1;->onClick(Landroid/content/DialogInterface;I)V
+  accessFlags = 0x19
+  name = "drawable"
 .end annotation
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/mobclix/android/sdk/Mobclix$BitmapHandler;,
-        Lcom/mobclix/android/sdk/Mobclix$FetchImageThread;,
-        Lcom/mobclix/android/sdk/Mobclix$FetchRemoteConfig;,
-        Lcom/mobclix/android/sdk/Mobclix$FetchResponseThread;,
-        Lcom/mobclix/android/sdk/Mobclix$LogEvent;,
-        Lcom/mobclix/android/sdk/Mobclix$MobclixHttpClient;,
-        Lcom/mobclix/android/sdk/Mobclix$SessionPolling;,
         Lcom/mobclix/android/sdk/Mobclix$Sync;
     }
 .end annotation

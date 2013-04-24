@@ -32,6 +32,14 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#annotation-name</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#annotation-access</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#comment-alone</string>
 		</dict>
 		<dict>
@@ -459,6 +467,14 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#annotation-name</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#annotation-access</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#comment-inline</string>
 				</dict>
 				<dict>
@@ -733,6 +749,26 @@
 			<key>match</key>
 			<string>^[ \t]*(\.annotation)[ \t]+(build|runtime|system)[ \t]+(?:(L)([\p{L}_][\p{L}\d_\$]*(?:/[\p{L}_][\p{L}\d_\$]*)*)(;))(?=[ \t]*(#.*)?$)</string>
 		</dict>
+		<key>annotation-access</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.smali</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.smali</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>accessFlags property in annotation. Haven't seen any of these go over 0x4019.</string>
+			<key>match</key>
+			<string>^[ \t]*(accessFlags)[ \t]*=[ \t]*(0x(?:0|[1-9a-f][\da-f]{0,3}))(?=[ \t]*(#.*)?$)</string>
+		</dict>
 		<key>annotation-end</key>
 		<dict>
 			<key>captures</key>
@@ -747,6 +783,41 @@
 			<string>Parsing this is hard to do right. This is Good Enough™.</string>
 			<key>match</key>
 			<string>^[ \t]*(\.end annotation)(?=[ \t]*(#.*)?$)</string>
+		</dict>
+		<key>annotation-name</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.smali</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>constant.language.smali</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.smali</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>string.quoted.double.smali</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.smali</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Name property in annotation</string>
+			<key>match</key>
+			<string>^[ \t]*(name)[ \t]*=[ \t]*(?:(null)|(")(.*?)((?&lt;!\\)")?)(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<key>annotation-value</key>
 		<dict>
@@ -777,7 +848,52 @@
 					<key>name</key>
 					<string>entity.name.tag.smali</string>
 				</dict>
+				<key>14</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.smali</string>
+				</dict>
+				<key>15</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.smali</string>
+				</dict>
+				<key>16</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.smali</string>
+				</dict>
+				<key>17</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.smali</string>
+				</dict>
+				<key>18</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.smali</string>
+				</dict>
+				<key>19</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.smali</string>
+				</dict>
 				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.smali</string>
+				</dict>
+				<key>20</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.smali</string>
+				</dict>
+				<key>21</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.smali</string>
+				</dict>
+				<key>22</key>
 				<dict>
 					<key>name</key>
 					<string>entity.name.tag.smali</string>
@@ -821,7 +937,7 @@
 			<key>comment</key>
 			<string>This is another hack because sublime can't handle multiple line 'end' regex.</string>
 			<key>match</key>
-			<string>(value)[ \t]*=[ \t]*(?:(")(.*?)((?&lt;!\\)")?|(?:\.(enum|subannotation)[ \t]+)?(L)([\p{L}_][\p{L}\d_\$]*(?:/[\p{L}_][\p{L}\d_\$]*)*)(;))(?:-&gt;([\p{L}_\$][\w\$]*):\[?(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\p{L}_][\p{L}\d_\$]*(?:/[\p{L}_][\p{L}\d_\$]*)*)(;)))))?(?=[ \t]*(#.*)?$)</string>
+			<string>^[ \t]*(value)[ \t]*=[ \t]*(?:(")(.*?)((?&lt;!\\)")?|(?:\.(enum|subannotation)[ \t]+)?(L)([\p{L}_][\p{L}\d_\$]*(?:/[\p{L}_][\p{L}\d_\$]*)*)(;))(?:-&gt;(?:([\p{L}_\$][\w\$]*):\[?(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\p{L}_][\p{L}\d_\$]*(?:/[\p{L}_][\p{L}\d_\$]*)*)(;))))|(&lt;init&gt;|&lt;clinit&gt;|(?:[\$\p{L}_][\p{L}\d_\$]*))\(((?:\[?(?:Z|B|S|C|I|J|F|D|L(?:[\p{L}_][\p{L}\d_\$]*(?:/[\p{L}_][\p{L}\d_\$]*)*);))*)\)(?:(V)|\[?(Z|B|S|C|I|J|F|D)|\[?(?:(L)([\p{L}_][\p{L}\d_\$]*(?:/[\p{L}_][\p{L}\d_\$]*)*)(;)))))?(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<key>annotation-value_list</key>
 		<dict>

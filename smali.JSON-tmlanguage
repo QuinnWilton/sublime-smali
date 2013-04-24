@@ -11,6 +11,8 @@
         { "include": "#annotation-end" },
         { "include": "#annotation-value_list" },
         { "include": "#annotation-value" },
+        { "include": "#annotation-name" },
+        { "include": "#annotation-access" },
         { "include": "#comment-alone" },
         { "include": "#field" },
         { "include": "#field-end" },
@@ -151,6 +153,8 @@
                 { "include": "#annotation-end" },
                 { "include": "#annotation-value_list" },
                 { "include": "#annotation-value" },
+                { "include": "#annotation-name" },
+                { "include": "#annotation-access" },
                 { "include": "#comment-inline" },
                 { "include": "#comment-alone" },
                 { "include": "#directive-method-line" },
@@ -254,9 +258,28 @@
             "match": "^[ \\t]*(\\.end annotation)(?=[ \\t]*(#.*)?$)",
             "captures": { "1": { "name": "constant.language.smali"} }
         },
+        "annotation-access": {
+            "comment": "accessFlags property in annotation. Haven't seen any of these go over 0x4019.",
+            "match": "^[ \\t]*(accessFlags)[ \\t]*=[ \\t]*(0x(?:0|[1-9a-f][\\da-f]{0,3}))(?=[ \\t]*(#.*)?$)",
+            "captures": {
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "constant.numeric.smali" }
+            }
+        },
+        "annotation-name": {
+            "comment": "Name property in annotation",
+            "match": "^[ \\t]*(name)[ \\t]*=[ \\t]*(?:(null)|(\")(.*?)((?<!\\\\)\")?)(?=[ \\t]*(#.*)?$)",
+            "captures": {
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "constant.language.smali" },
+                "3": { "name": "entity.name.tag.smali" },
+                "4": { "name": "string.quoted.double.smali" },
+                "5": { "name": "entity.name.tag.smali" }
+            }
+        },
         "annotation-value": {
             "comment": "This is another hack because sublime can't handle multiple line 'end' regex.",
-            "match": "(value)[ \\t]*=[ \\t]*(?:(\")(.*?)((?<!\\\\)\")?|(?:\\.(enum|subannotation)[ \\t]+)?(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;))(?:->([\\p{L}_\\$][\\w\\$]*):\\[?(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)))))?(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*(value)[ \\t]*=[ \\t]*(?:(\")(.*?)((?<!\\\\)\")?|(?:\\.(enum|subannotation)[ \\t]+)?(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;))(?:->(?:([\\p{L}_\\$][\\w\\$]*):\\[?(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;))))|(<init>|<clinit>|(?:[\\$\\p{L}_][\\p{L}\\d_\\$]*))\\(((?:\\[?(?:Z|B|S|C|I|J|F|D|L(?:[\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*);))*)\\)(?:(V)|\\[?(Z|B|S|C|I|J|F|D)|\\[?(?:(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)))))?(?=[ \\t]*(#.*)?$)",
             "captures": {
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "entity.name.tag.smali" },
@@ -270,7 +293,16 @@
                 "10": { "name": "constant.numeric.smali" },
                 "11": { "name": "entity.name.tag.smali" },
                 "12": { "name": "constant.numeric.smali" },
-                "13": { "name": "entity.name.tag.smali" }
+                "13": { "name": "entity.name.tag.smali" },
+                "14": { "name": "entity.name.function.smali" },
+                "15": { "name": "constant.numeric.smali" },
+                "16": { "name": "constant.numeric.smali" },
+                "17": { "name": "constant.numeric.smali" },
+                "18": { "name": "entity.name.tag.smali" },
+                "19": { "name": "constant.numeric.smali" },
+                "20": { "name": "entity.name.tag.smali" },
+                "21": { "name": "constant.numeric.smali" },
+                "22": { "name": "entity.name.tag.smali" }
             }
         },
         "annotation-value_list": {
