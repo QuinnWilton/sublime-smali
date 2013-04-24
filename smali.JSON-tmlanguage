@@ -1,0 +1,739 @@
+{
+    "name": "Smali",
+    "scopeName": "source.smali",
+    "fileTypes": [
+        "Smali"
+    ],
+    "foldingStartMarker": "[ \\t]*\\.method",
+    "foldingStopMarker": "[ \\t]*\\.end method",
+    "patterns": [
+        { "include": "#annotation" },
+        { "include": "#annotation-end" },
+        { "include": "#annotation-value_list" },
+        { "include": "#annotation-value" },
+        { "include": "#comment-alone" },
+        { "include": "#field" },
+        { "include": "#field-end" },
+        {
+            "comment": "Class name",
+            "match": "^[ \\t]*(\\.class)[ \\t]*((?:(?:interface|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[ \\t]+)*)[ \\t]*(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "constant.language.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "entity.name.tag.smali" },
+                "4": { "name": "string.quoted.double.smali" },
+                "5": { "name": "entity.name.tag.smali" }
+            }
+        },
+        {
+            "comment": "Super / implements class name",
+            "match": "^[ \\t]*(\\.(?:super|implements))[ \\t]+(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "constant.language.smali" },
+                "2": { "name": "entity.name.tag.smali" },
+                "3": { "name": "string.quoted.double.smali" },
+                "4": { "name": "entity.name.tag.smali" }
+            }
+        },
+        {
+            "comment": "Source file",
+            "match": "^[ \\t]*(\\.source)[ \\t]+(\")(.*?)((?<!\\\\)\")(?=[ \\t]*(#.*)?$)(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "constant.language.smali" },
+                "2": { "name": "entity.name.tag.smali" },
+                "3": { "name": "string.quoted.double.smali" },
+                "4": { "name": "entity.name.tag.smali" }
+            }
+        },
+        {
+            "comment": "Method signature and body",
+            "begin": "^[ \\t]*(\\.method)[ \\t]*((?:(?:declared-synchronized|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[ \\t]+)*)(constructor )?(<init>|<clinit>|(?:[\\p{L}_][\\p{L}\\d_\\$]*))\\(((?:\\[?(?:Z|B|S|C|I|J|F|D|L(?:[\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*);))*)\\)(?:(V)|\\[?(Z|B|S|C|I|J|F|D)|\\[?(?:(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)))(?=[ \\t]*(#.*)?$)",
+            "beginCaptures": {
+                "1": { "name": "constant.language.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "variable.parameter.smali" },
+                "4": { "name": "entity.name.function.smali" },
+                "5": { "name": "constant.numeric.smali" },
+                "6": { "name": "constant.numeric.smali" },
+                "7": { "name": "constant.numeric.smali" },
+                "8": { "name": "entity.name.tag.smali" },
+                "9": { "name": "constant.numeric.smali" },
+                "10": { "name": "entity.name.tag.smali" },
+                "11": { "name": "constant.numeric.smali" },
+                "12": { "name": "entity.name.tag.smali" }
+            },
+            "end": "^[ \\t]*(\\.end method)(?=[ \\t]*(#.*)?$)",
+            "endCaptures": {
+                "1": { "name": "constant.language.smali" }
+            },
+            "patterns": [
+                {
+                    "comment": "Prologue",
+                    "name": "constant.language.smali",
+                    "match": "^[ \\t]*(\\.prologue)(?=[ \\t]*(#.*)?$)"
+                },
+                {
+                    "comment": "Local",
+                    "match": "^[ \\t]*(\\.local)[ \\t]+([vp]\\d+),[ \\t]+([\\p{L}_\\$][\\w\\$]*):\\[?(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;))))(?:,(\")(.*?)((?<!\\\\)\"))?(?=[ \\t]*(#.*)?$)",
+                    "captures": {
+                        "1": { "name": "constant.language.smali" },
+                        "2": { "name": "variable.parameter.smali" },
+                        "3": { "name": "string.interpolated.smali" },
+                        "4": { "name": "constant.numeric.smali" },
+                        "5": { "name": "entity.name.tag.smali" },
+                        "6": { "name": "constant.numeric.smali" },
+                        "7": { "name": "entity.name.tag.smali" },
+                        "8": { "name": "entity.name.tag.smali" },
+                        "9": { "name": "string.interpolated.smali" },
+                        "10": { "name": "entity.name.tag.smali" }
+                    }
+                },
+                {
+                    "comment": "Gotta catch 'em all!",
+                    "match": "^[ \\t]*(\\.catch)[ \\t]+(?:(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;))[ \\t]+{(:[A-Za-z_\\d]+)[ \\t]+\\.\\.[ \\t]+(:[A-Za-z_\\d]+)}[ \\t]+(:[A-Za-z_\\d]+)(?=[ \\t]*(#.*)?$)",
+                    "captures": {
+                        "1": { "name": "constant.language.smali" },
+                        "2": { "name": "entity.name.tag.smali" },
+                        "3": { "name": "constant.numeric.smali" },
+                        "4": { "name": "entity.name.tag.smali" },
+                        "5": { "name": "keyword.control.smali" },
+                        "6": { "name": "keyword.control.smali" },
+                        "7": { "name": "keyword.control.smali" }
+                    }
+                },
+                {
+                    "comment": "End / Restart Local",
+                    "name": "constant.language.smali",
+                    "match": "^[ \\t]*(\\.(?:end|restart)[ \\t]+local)[ \\t]+[vp]\\d+(?=[ \\t]*(#.*)?$)"
+                },
+                {
+                    "comment": "Sparse Switch",
+                    "begin": "^[ \\t]*(\\.sparse-switch)(?=[ \\t]*(#.*)?$)",
+                    "beginCaptures": { "1": { "name": "constant.language.smali" } },
+                    "end": "^[ \\t]*(\\.end sparse-switch)(?=[ \\t]*(#.*)?$)",
+                    "endCaptures": { "1": { "name": "constant.language.smali" } },
+                    "patterns": [
+                        {
+                            "match": "^[ \\t]*(0x(?i:0|[1-9a-f][\\da-f]{0,3}))[ \\t]+->[ \\t]+(:[A-Za-z_\\d]+)(?=[ \\t]*(#.*)?$)",
+                            "captures": {
+                                "1": { "name": "constant.language.smali" },
+                                "2": { "name": "keyword.control.smali" }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "comment": "Begin Packed Switch",
+                    "match": "^[ \\t]*(\\.packed-switch)[ \\t]+(0x(?i:0|[1-9a-f][\\da-f]{0,3}))(?=[ \\t]*(#.*)?$)",
+                    "captures": {
+                        "1": { "name": "constant.language.smali" },
+                        "2": { "name": "constant.numeric.smali" }
+                    }
+                },
+                {
+                    "comment": "End Packed Switch",
+                    "name": "constant.language.smali",
+                    "match": "^[ \\t]*(\\.end packed-switch)(?=[ \\t]*(#.*)?$)"
+                },
+                { "include": "#field" },
+                { "include": "#field-end" },
+                { "include": "#annotation" },
+                { "include": "#annotation-end" },
+                { "include": "#annotation-value_list" },
+                { "include": "#annotation-value" },
+                { "include": "#comment-inline" },
+                { "include": "#comment-alone" },
+                { "include": "#directive-method-line" },
+                { "include": "#directive-method-registers_locals" },
+                { "include": "#directive-method-label" },
+                { "include": "#directive-method-parameter" },
+                { "include": "#directives-method-relaxed" },
+                { "include": "#opcode-format-10x" },
+                { "include": "#opcode-format-10x-relaxed" },
+                { "include": "#opcode-format-11n" },
+                { "include": "#opcode-format-11n-relaxed" },
+                { "include": "#opcode-format-11x" },
+                { "include": "#opcode-format-11x-relaxed" },
+                { "include": "#opcode-format-22x" },
+                { "include": "#opcode-format-22x-relaxed" },
+                { "include": "#opcode-format-32x" },
+                { "include": "#opcode-format-32x-relaxed" },
+                { "include": "#opcode-format-12x" },
+                { "include": "#opcode-format-12x-relaxed" },
+                { "include": "#opcode-format-21c-string" },
+                { "include": "#opcode-format-21c-type" },
+                { "include": "#opcode-format-21c-field" },
+                { "include": "#opcode-format-21c-relaxed" },
+                { "include": "#opcode-format-21h" },
+                { "include": "#opcode-format-21h-relaxed" },
+                { "include": "#opcode-format-21s" },
+                { "include": "#opcode-format-21s-relaxed" },
+                { "include": "#opcode-format-21t" },
+                { "include": "#opcode-format-21t-relaxed" },
+                { "include": "#opcode-format-31t" },
+                { "include": "#opcode-format-31t-relaxed" },
+                { "include": "#opcode-format-22b" },
+                { "include": "#opcode-format-22b-relaxed" },
+                { "include": "#opcode-format-22c-type" },
+                { "include": "#opcode-format-22c-type_array" },
+                { "include": "#opcode-format-22c-field" },
+                { "include": "#opcode-format-22c-relaxed" },
+                { "include": "#opcode-format-22s" },
+                { "include": "#opcode-format-22s-relaxed" },
+                { "include": "#opcode-format-22t" },
+                { "include": "#opcode-format-22t-relaxed" },
+                { "include": "#opcode-format-23x" },
+                { "include": "#opcode-format-23x-relaxed" },
+                { "include": "#opcode-format-3rc-type" },
+                { "include": "#opcode-format-3rc-meth" },
+                { "include": "#opcode-format-3rc-relaxed" },
+                { "include": "#opcode-format-35c-type" },
+                { "include": "#opcode-format-35c-meth" },
+                { "include": "#opcode-format-35c-relaxed" },
+                { "include": "#opcode-format-51l" },
+                { "include": "#opcode-format-51l-relaxed" },
+                { "include": "#opcode-format-31i" },
+                { "include": "#opcode-format-31i-relaxed" },
+                { "include": "#opcode-format-10t-20t-30t" },
+                { "include": "#opcode-format-10t-20t-30t-relaxed" }
+            ]
+        },
+        { "include": "#comment-inline" },
+        {
+            "comment": "Method directives - relaxed",
+            "match": "^[ \\t]*(\\.(?:class|super|implements|method|(end )?(?:method|annotation|field)))",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        }
+    ],
+    "repository": {
+        "field": {
+            "comment": "Field",
+            "match": "^[ \\t]*(\\.field)[ \\t]+((?:(?:public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[ \\t]+)*)([\\p{L}_\\$][\\w\\$]*):\\[?(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;))))(?:[ \\t]+=[ \\t]+(?:(null|true|false)|(?i:((?:-0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}))|(?:(?:-0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}|8[0]{15})|0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}))L))\\b)|(\")(.*?)((?<!\\\\)\")))?(?=[ \\t]*(#.*)?$)",
+            "captures": {
+                "1": { "name": "constant.language.smali"},
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "string.interpolated.smali" },
+                "4": { "name": "constant.numeric.smali" },
+                "5": { "name": "entity.name.tag.smali" },
+                "6": { "name": "constant.numeric.smali" },
+                "7": { "name": "entity.name.tag.smali" },
+                "8": { "name": "constant.language.smali" },
+                "9": { "name": "constant.numeric.smali" },
+                "10": { "name": "entity.name.tag.smali" },
+                "11": { "name": "string.quoted.double.smali" },
+                "12": { "name": "entity.name.tag.smali" }
+            }
+        },
+        "field-end": {
+            "comment": "Parsing this is hard to do right. This is Good Enough™.",
+            "match": "^[ \\t]*(\\.end field)(?=[ \\t]*(#.*)?$)",
+            "captures": { "1": { "name": "constant.language.smali"} }
+        },
+        "annotation": {
+            "match": "^[ \\t]*(\\.annotation)[ \\t]+(build|runtime|system)[ \\t]+(?:(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;))(?=[ \\t]*(#.*)?$)",
+            "captures": {
+                "1": { "name": "constant.language.smali"},
+                "2": { "name": "storage.modifier.smali" },
+                "3": { "name": "entity.name.tag.smali" },
+                "4": { "name": "constant.numeric.smali" },
+                "5": { "name": "entity.name.tag.smali" }
+            }
+        },
+        "annotation-end": {
+            "comment": "Parsing this is hard to do right. This is Good Enough™.",
+            "match": "^[ \\t]*(\\.end annotation)(?=[ \\t]*(#.*)?$)",
+            "captures": { "1": { "name": "constant.language.smali"} }
+        },
+        "annotation-value": {
+            "comment": "This is another hack because sublime can't handle multiple line 'end' regex.",
+            "match": "(value)[ \\t]*=[ \\t]*(?:(\")(.*?)((?<!\\\\)\")?|(?:\\.(enum|subannotation)[ \\t]+)?(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;))(?:->([\\p{L}_\\$][\\w\\$]*):\\[?(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)))))?(?=[ \\t]*(#.*)?$)",
+            "captures": {
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "entity.name.tag.smali" },
+                "3": { "name": "string.quoted.double.smali" },
+                "4": { "name": "entity.name.tag.smali" },
+                "5": { "name": "entity.name.tag.smali" },
+                "6": { "name": "entity.name.tag.smali" },
+                "7": { "name": "constant.numeric.smali" },
+                "8": { "name": "entity.name.tag.smali" },
+                "9": { "name": "string.interpolated.smali" },
+                "10": { "name": "constant.numeric.smali" },
+                "11": { "name": "entity.name.tag.smali" },
+                "12": { "name": "constant.numeric.smali" },
+                "13": { "name": "entity.name.tag.smali" }
+            }
+        },
+        "annotation-value_list": {
+            "comment": "This is another hack. Deals.",
+            "begin": "^[ \\t]*(value)[ \\t]*=[ \\t]*{(?=[ \\t]*(#.*)?$)",
+            "beginCaptures": { "1": { "name": "support.function.smali" } },
+            "end": "^[ \\t]*}(?=[ \\t]*(#.*)?$)",
+            "patterns": [
+                {
+                    "match": "(?:(\")(.*?)((?<!\\\\)\")?|(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;))(?:,)?(?=[ \\t]*(#.*)?$)",
+                    "captures": {
+                        "1": { "name": "entity.name.tag.smali" },
+                        "2": { "name": "string.quoted.double.smali" },
+                        "3": { "name": "entity.name.tag.smali" },
+                        "4": { "name": "entity.name.tag.smali" },
+                        "5": { "name": "constant.numeric.smali" },
+                        "6": { "name": "entity.name.tag.smali" }                    }
+                }
+            ]
+        },
+        "directive-method-registers_locals": {
+            "comment": "Registers / Locals",
+            "match": "[ \\t]*(\\.(?:registers|locals))[ \\t]+(\\d+)(?=[ \\t]*(#.*)?$)",
+            "captures": {
+                "1": { "name": "constant.language.smali" },
+                "2": { "name": "variable.parameter.smali" }
+            }
+        },
+        "directive-method-line": {
+            "comment": "Line",
+            "match": "[ \\t]*(\\.line)[ \\t]+(\\d+)(?=[ \\t]*(#.*)?$)",
+            "captures": {
+                "1": { "name": "constant.language.smali" },
+                "2": { "name": "variable.parameter.smali" }
+            }
+        },
+        "directive-method-parameter": {
+            "comment": "Parameter",
+            "match": "[ \\t]*(\\.parameter)[ \\t]*(?:(\")(.*?)((?<!\\\\)\"))?(?=[ \\t]*(#.*)?$)",
+            "captures": {
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "entity.name.tag.smali" },
+                "3": { "name": "string.quoted.double.smali" },
+                "4": { "name": "entity.name.tag.smali" }
+            }
+        },
+        "directive-method-label": {
+            "comment": "Label",
+            "match": "^[ \\t]*(:[A-Za-z_\\d]+)(?=[ \\t]*(#.*)?$)",
+            "captures":{ "1": { "name": "keyword.control.smali" } }
+        },
+        "directives-method-relaxed": {
+            "match": "^[ \\t]*(:|\\.(?:parameter|line|registers|locals|(?:restart )?local|prologue|(?:end )?(annotation|(sparse|packed)-switch|local)|catch(?:all)?))",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+        "comment-alone": {
+            "comment": "Single line, stand alone comment",
+            "match": "^[ \\t]*(#.*)$",
+            "captures": { "1": { "name": "comment.line.number-sign.smali"} }
+        },
+        "comment-inline": {
+            "comment": "End of line comment",
+            "match": "(#.*)$",
+            "captures": { "1": { "name": "comment.line.number-sign.smali"} }
+        },
+        "opcode-format-10x": {
+            "comment": "Format: op",
+            "match": "^[ \\t]*(nop|return-void)(?=[ \\t]*(#.*)?$)",
+            "captures": { "1": { "name": "support.function.smali" } }
+        },
+        "opcode-format-10x-relaxed": {
+            "match": "^[ \\t]*(nop|return-void)",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+        "opcode-format-11n": {
+            "comment": "Format: op vA, #+B",
+            "match": "^[ \\t]*(const\/4)[ \\t]+([vp](?:0|[1-9]|1[0-5])\\b),[ \\t]*(?i:(-0x[0-8]|0x[0-7]))(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "constant.numeric.smali" }
+            }
+        },
+        "opcode-format-11n-relaxed": {
+            "match": "^[ \\t]*(const\/4)",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+        "opcode-format-11x": {
+            "comment": "Format: op vAA",
+            "match": "^[ \\t]*(move-(?:result(?:-wide|-object)?|exception)|return(?:-wide|-object)?|monitor-(?:enter|exit)|throw)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b)(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" }
+            }
+        },
+        "opcode-format-11x-relaxed": {
+            "match": "^[ \\t]*(move-(?:result(?:-wide|-object)?|exception)|return(?:-wide|-object)?|monitor-(?:enter|exit)|throw)",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+        "opcode-format-22x": {
+            "comment": "Format: op vAA, vBBBB",
+            "match": "^[ \\t]*(move(?:-wide|-object)?\/from16)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*([vp](?:0|[1-9][\\d]{0,3}|[1-5][\\d]{4}|6[0-4][\\d]{3}|65[0-4][\\d]{2}|655[0-2][\\d]|6553[0-5])\\b)(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "variable.parameter.smali" }
+            }
+        },
+        "opcode-format-22x-relaxed": {
+            "match": "^[ \\t]*(move(?:-wide|-object)?\/from16)",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+        "opcode-format-32x": {
+            "comment": "Format: op vAAAA, vBBBB",
+            "match": "^[ \\t]*(move(?:-wide|-object)?\/16)[ \\t]+([vp](?:0|[1-9][\\d]{0,3}|[1-5][\\d]{4}|6[0-4][\\d]{3}|65[0-4][\\d]{2}|655[0-2][\\d]|6553[0-5])\\b),[ \\t]*([vp](?:0|[1-9][\\d]{0,3}|[1-5][\\d]{4}|6[0-4][\\d]{3}|65[0-4][\\d]{2}|655[0-2][\\d]|6553[0-5])\\b)(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "variable.parameter.smali" }
+            }
+        },
+        "opcode-format-32x-relaxed": {
+            "match": "^[ \\t]*(move(?:-wide|-object)?\/16)",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+        "opcode-format-12x": {
+            "comment": "Format: op vA, vB",
+            "match": "^[ \\t]*(move(?:-wide|-object)?|array-length|neg-(?:int|long|float|double)|not-(?:int|long)|int-to-(?:long|float|double|byte|char|short)|long-to-(?:int|float|double)|float-to-(?:int|long|double)|double-to-(?:int|long|float)|(?:add|sub|mul|div|rem|and|or|xor|shl|shr|ushr)-(?:int|long)\/2addr|(?:add|sub|mul|div|rem)-(?:float|double)\/2addr)[ \\t]+([vp](?:0|[1-9]|1[0-5])\\b),[ \\t]*([vp](?:0|[1-9]|1[0-5])\\b)(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "variable.parameter.smali" }
+            }
+        },
+        "opcode-format-12x-relaxed": {
+            "match": "^[ \\t]*(move(?:-wide|-object)?|array-length|neg-(?:int|long|float|double)|not-(?:int|long)|int-to-(?:long|float|double|byte|char|short)|long-to-(?:int|float|double)|float-to-(?:int|long|double)|double-to-(?:int|long|float)|(?:add|sub|mul|div|rem|and|or|xor|shl|shr|ushr)-(?:int|long)\/2addr|(?:add|sub|mul|div|rem)-(?:float|double)\/2addr)",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+        "opcode-format-21c-string": {
+            "comment": "Format: op vAA, string@BBBB",
+            "match": "^[ \\t]*(const-string)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(\")(.*?)((?<!\\\\)\")(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "entity.name.tag.smali" },
+                "4": { "name": "string.quoted.double.smali" },
+                "5": { "name": "entity.name.tag.smali" }
+            }
+        },
+        "opcode-format-21c-type": {
+            "comment": "Format: op vAA, type@BBBB",
+            "match": "^[ \\t]*(const-class|check-cast|new-instance)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*\\[?(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "entity.name.tag.smali" },
+                "4": { "name": "constant.numeric.smali" },
+                "5": { "name": "entity.name.tag.smali" }
+            }
+        },
+        "opcode-format-21c-field": {
+            "comment": "Format: op vAA, field@BBBB",
+            "match": "^[ \\t]*((?:sget|sput)(?:-wide|-object|-boolean|-byte|-char|-short)?)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)->([\\p{L}_\\$][\\w\\$]*):\\[?(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;))))(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "entity.name.tag.smali" },
+                "4": { "name": "constant.numeric.smali" },
+                "5": { "name": "entity.name.tag.smali" },
+                "6": { "name": "string.interpolated.smali" },
+                "7": { "name": "constant.numeric.smali" },
+                "8": { "name": "entity.name.tag.smali" },
+                "9": { "name": "constant.numeric.smali" },
+                "10": { "name": "entity.name.tag.smali" }
+            }
+        },
+        "opcode-format-21c-relaxed": {
+            "match": "^[ \\t]*(const-string|const-class|check-cast|new-instance|(?:sget|sput)(?:-wide|-object|-boolean|-byte|-char|-short)?)",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+        "opcode-format-21h": {
+            "comment": "Format: op vAA, #+BBBB0000(00000000)",
+            "match": "^[ \\t]*(const(?:-wide)?\/high16)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(?i:(-0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3}|8000)|0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3})))\\b(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "constant.numeric.smali" }
+            }
+        },
+        "opcode-format-21h-relaxed": {
+            "match": "^[ \\t]*(const(?:-wide)?\/high16)",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+        "opcode-format-21s": {
+            "comment": "Format: op vAA, #+BBBB",
+            "match": "^[ \\t]*(const(?:-wide)?\/16)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(?i:(-0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3}|8000)|0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3})))\\b(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "constant.numeric.smali" }
+            }
+        },
+        "opcode-format-21s-relaxed": {
+            "match": "^[ \\t]*(const(?:-wide)?\/16)",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+        "opcode-format-21t": {
+            "comment": "Format: op vAA, +BBBB",
+            "match": "^[ \\t]*(if-(?:eq|ne|lt|ge|gt|le)z)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(:[A-Za-z_\\d]+)(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "keyword.control.smali" }
+            }
+        },
+        "opcode-format-21t-relaxed": {
+            "match": "^[ \\t]*(if-(?:eq|ne|lt|ge|gt|le)z)",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+        "opcode-format-31t": {
+            "comment": "Format: op vAA, +BBBBBBBB",
+            "match": "^[ \\t]*(filled-array-data|(?:packed|sparse)-switch)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(:[A-Za-z_\\d]+)(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "keyword.control" }
+            }
+        },
+        "opcode-format-31t-relaxed": {
+            "match": "^[ \\t]*(filled-array-data|(?:packed|sparse)-switch)",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+        "opcode-format-22b": {
+            "comment": "Format: op vAA, vBB, #+CC",
+            "match": "^[ \\t]*((?:add|rsub|mul|div|rem|and|or|xor|shl|shr|ushr)-int\/lit8)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(?i:(-0x(?:[\\da-f]|[1-7][\\da-f]|80)|0x(?:[\\da-f]|[1-7][\\da-f])))\\b(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "variable.parameter.smali" },
+                "4": { "name": "constant.numeric.smali" }
+            }
+        },
+        "opcode-format-22b-relaxed": {
+            "match": "^[ \\t]*((?:add|rsub|mul|div|rem|and|or|xor|shl|shr|ushr)-int\/lit8)",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+        "opcode-format-22c-type": {
+            "comment": "Format: op vA, vB, type@CCCC",
+            "match": "^[ \\t]*(instance-of)[ \\t]+([vp](?:0|[1-9]|1[0-5])\\b),[ \\t]*([vp](?:0|[1-9]|1[0-5])\\b),[ \\t]*(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "variable.parameter.smali" },
+                "4": { "name": "entity.name.tag.smali" },
+                "5": { "name": "constant.numeric.smali" },
+                "6": { "name": "entity.name.tag.smali" }
+            }
+        },
+        "opcode-format-22c-type_array": {
+            "comment": "Format: op vA, vB, [type@CCCC",
+            "match": "^[ \\t]*(new-array)[ \\t]+([vp](?:0|[1-9]|1[0-5])\\b),[ \\t]*([vp](?:0|[1-9]|1[0-5])\\b),[ \\t]*\\[(?:(Z|B|S|C|I|J|F|D)|(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;))(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "variable.parameter.smali" },
+                "4": { "name": "constant.numeric.smali" },
+                "5": { "name": "entity.name.tag.smali" },
+                "6": { "name": "constant.numeric.smali" },
+                "7": { "name": "entity.name.tag.smali" }
+            }
+        },
+        "opcode-format-22c-field": {
+            "comment": "Format: op vA, vB, field@CCCC",
+            "match": "^[ \\t]*((?:iget|iput)(?:-wide|-object|-boolean|-byte|-char|-short)?)[ \\t]+([vp](?:0|[1-9]|1[0-5])\\b),[ \\t]*([vp](?:0|[1-9]|1[0-5])\\b),[ \\t]*(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)->([\\p{L}_\\$][\\w\\$]*):\\[?(?:(Z|B|S|C|I|J|F|D|(?:(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;))))(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "variable.parameter.smali" },
+                "4": { "name": "entity.name.tag.smali" },
+                "5": { "name": "constant.numeric.smali" },
+                "6": { "name": "entity.name.tag.smali" },
+                "7": { "name": "string.interpolated.smali" },
+                "8": { "name": "constant.numeric.smali" },
+                "9": { "name": "entity.name.tag.smali" },
+                "10": { "name": "constant.numeric.smali" },
+                "11": { "name": "entity.name.tag.smali" }
+            }
+        },
+        "opcode-format-22c-relaxed": {
+            "match": "^[ \\t]*(instance-of|new-array|(?:iget|iput)(?:-wide|-object|-boolean|-byte|-char|-short)?)",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+        "opcode-format-22s": {
+            "comment": "Format: op vA, vB, #+CCCC",
+            "match": "^[ \\t]*((?:add|rsub|mul|div|rem|and|or|xor)-int\/lit16)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(?i:(-0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3}|8000)|0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3})))\\b(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "variable.parameter.smali" },
+                "4": { "name": "constant.numeric.smali" }
+            }
+        },
+        "opcode-format-22s-relaxed": {
+            "match": "^[ \\t]*((?:add|rsub|mul|div|rem|and|or|xor)-int\/lit16)",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+        "opcode-format-22t": {
+            "comment": "*Format: op vA, vB, +CCCC",
+            "match": "^[ \\t]*(if-(?:eq|ne|lt|ge|gt|le))[ \\t]+([vp](?:0|[1-9]|1[0-5])\\b),[ \\t]*([vp](?:0|[1-9]|1[0-5])\\b),[ \\t]*(:[A-Za-z_\\d]+)(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "variable.parameter.smali" },
+                "4": { "name": "keyword.control" }
+            }
+        },
+        "opcode-format-22t-relaxed": {
+            "match": "(if-(?:eq|ne|lt|ge|gt|le))",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+
+        "opcode-format-23x": {
+            "comment": "Format: op vAA, vBB, vCC",
+            "match": "^[ \\t]*((?:cmpl|cmpg)-(?:float|double)|cmp-long|(?:aget|aput)(?:-wide|-object|-boolean|-byte|-char|-short)?|(?:add|sub|mul|div|rem|and|or|xor|shl|shr|ushr)-(?:int|long)|(?:add|sub|mul|div|rem)-(?:float|double))[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b)(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "variable.parameter.smali" },
+                "4": { "name": "variable.parameter.smali" }
+            }
+        },
+        "opcode-format-23x-relaxed": {
+            "match": "^[ \\t]*((?:cmpl|cmpg)-(float|double)|cmp-long|(?:aget|aput)(?:-wide|-object|-boolean|-byte|-char|-short)?|(?:add|sub|mul|div|rem|and|or|xor|shl|shr|ushr)-(?:int|long)|(?:add|sub|mul|div|rem)-(?:float|double))",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+        "opcode-format-3rc-type": {
+            "comment": "Format: op {vCCCC .. vNNNN}, type@BBBB",
+            "match": "^[ \\t]*(filled-new-array\/range) {([vp](?:0|[1-9][\\d]{0,3}|[1-5][\\d]{4}|6[0-4][\\d]{3}|65[0-4][\\d]{2}|655[0-2][\\d]|6553[0-5])\\b) \\.\\. ([vp](?:0|[1-9][\\d]{0,3}|[1-5][\\d]{4}|6[0-4][\\d]{3}|65[0-4][\\d]{2}|655[0-2][\\d]|6553[0-5])\\b)},[ \\t]*\\[(?:(Z|B|S|C|I|J|F|D)|(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;))(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "variable.parameter.smali" },
+                "4": { "name": "constant.numeric.smali" },
+                "5": { "name": "entity.name.tag.smali" },
+                "6": { "name": "constant.numeric.smali" },
+                "7": { "name": "entity.name.tag.smali" }
+            }
+        },
+        "opcode-format-3rc-meth": {
+            "comment": "Format: op {vCCCC .. vNNNN}, meth@BBBB",
+            "match": "^[ \\t]*(invoke-(?:virtual|super|direct|static|interface)\/range) {([vp](?:0|[1-9][\\d]{0,3}|[1-5][\\d]{4}|6[0-4][\\d]{3}|65[0-4][\\d]{2}|655[0-2][\\d]|6553[0-5])\\b) \\.\\. ([vp](?:0|[1-9][\\d]{0,3}|[1-5][\\d]{4}|6[0-4][\\d]{3}|65[0-4][\\d]{2}|655[0-2][\\d]|6553[0-5])\\b)},[ \\t]*(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)->(<init>|<clinit>|(?:[\\p{L}_][\\p{L}\\d_\\$]*))\\(((?:\\[?(?:Z|B|S|C|I|J|F|D|L(?:[\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*);))*)\\)(?:(V)|\\[?(Z|B|S|C|I|J|F|D)|\\[?(?:(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)))(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "variable.parameter.smali" },
+                "4": { "name": "entity.name.tag.smali" },
+                "5": { "name": "constant.numeric.smali" },
+                "6": { "name": "entity.name.tag.smali" },
+                "7": { "name": "entity.name.function.smali" },
+                "8": { "name": "constant.numeric.smali" },
+                "9": { "name": "constant.numeric.smali" },
+                "10": { "name": "constant.numeric.smali" },
+                "11": { "name": "entity.name.tag.smali" },
+                "12": { "name": "constant.numeric.smali" },
+                "13": { "name": "entity.name.tag.smali" },
+                "14": { "name": "constant.numeric.smali" },
+                "15": { "name": "entity.name.tag.smali" }
+            }
+        },
+        "opcode-format-3rc-relaxed": {
+            "match": "^[ \\t]*((?:filled-new-array|invoke-(?:virtual|super|direct|static|interface))\/range)",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+        "opcode-format-35c-type": {
+            "comment": "Format: op {vC, vD, vE, vF, vG}, type@BBBB",
+            "match": "^[ \\t]*(filled-new-array) {([vp](?:0|[1-9]|1[0-5])\\b),[ \\t]*([vp](?:0|[1-9]|1[0-5])\\b)(?:,[ \\t]*([vp](?:0|[1-9]|1[0-5])\\b))?(?:,[ \\t]*([vp](?:0|[1-9]|1[0-5])\\b))?(?:,[ \\t]*([vp](?:0|[1-9]|1[0-5])\\b))?},[ \\t]*\\[(?:(Z|B|S|C|I|J|F|D)|(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;))(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "variable.parameter.smali" },
+                "4": { "name": "variable.parameter.smali" },
+                "5": { "name": "variable.parameter.smali" },
+                "6": { "name": "variable.parameter.smali" },
+                "7": { "name": "constant.numeric.smali" },
+                "8": { "name": "entity.name.tag.smali" },
+                "9": { "name": "constant.numeric.smali" },
+                "10": { "name": "entity.name.tag.smali" },
+                "11": { "name": "constant.numeric.smali" }
+            }
+        },
+        "opcode-format-35c-meth": {
+            "comment": "Format: op {vC, vD, vE, vF, vG}, meth@BBBB",
+            "match": "^[ \\t]*(invoke-(?:virtual|super|direct|static|interface)) {([vp](?:0|[1-9]|1[0-5])\\b)?(?:,[ \\t]*([vp](?:0|[1-9]|1[0-5])\\b))?(?:,[ \\t]*([vp](?:0|[1-9]|1[0-5])\\b))?(?:,[ \\t]*([vp](?:0|[1-9]|1[0-5])\\b))?(?:,[ \\t]*([vp](?:0|[1-9]|1[0-5])\\b))?},[ \\t]*(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)->(<init>|<clinit>|(?:[\\p{L}_][\\p{L}\\d_\\$]*))\\((?:\\[?(Z|B|S|C|I|J|F|D)|(?:\\[?(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)))?(?:\\[?(Z|B|S|C|I|J|F|D)|(?:\\[?(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)))?(?:\\[?(Z|B|S|C|I|J|F|D)|(?:\\[?(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)))?(?:\\[?(Z|B|S|C|I|J|F|D)|(?:\\[?(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)))?(?:\\[?(Z|B|S|C|I|J|F|D)|(?:\\[?(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)))?\\)(?:(?:(V)|\\[?(Z|B|S|C|I|J|F|D))|(?:\\[?(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)))(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "variable.parameter.smali" },
+                "4": { "name": "variable.parameter.smali" },
+                "5": { "name": "variable.parameter.smali" },
+                "6": { "name": "variable.parameter.smali" },
+                "7": { "name": "entity.name.tag.smali" },
+                "8": { "name": "constant.numeric.smali" },
+                "9": { "name": "entity.name.tag.smali" },
+                "10": { "name": "entity.name.function.smali" },
+                "11": { "name": "constant.numeric.smali" },
+                "12": { "name": "entity.name.tag.smali" },
+                "13": { "name": "constant.numeric.smali" },
+                "14": { "name": "entity.name.tag.smali" },
+                "15": { "name": "constant.numeric.smali" },
+                "16": { "name": "entity.name.tag.smali" },
+                "17": { "name": "constant.numeric.smali" },
+                "18": { "name": "entity.name.tag.smali" },
+                "19": { "name": "constant.numeric.smali" },
+                "20": { "name": "entity.name.tag.smali" },
+                "21": { "name": "constant.numeric.smali" },
+                "22": { "name": "entity.name.tag.smali" },
+                "23": { "name": "constant.numeric.smali" },
+                "24": { "name": "entity.name.tag.smali" },
+                "25": { "name": "constant.numeric.smali" },
+                "26": { "name": "entity.name.tag.smali" },
+                "27": { "name": "constant.numeric.smali" },
+                "28": { "name": "entity.name.tag.smali" },
+                "29": { "name": "constant.numeric.smali" },
+                "30": { "name": "entity.name.tag.smali" },
+                "31": { "name": "constant.numeric.smali" },
+                "32": { "name": "constant.numeric.smali" },
+                "33": { "name": "entity.name.tag.smali" },
+                "34": { "name": "constant.numeric.smali" },
+                "35": { "name": "entity.name.tag.smali" }
+            }
+        },
+        "opcode-format-35c-relaxed": {
+            "match": "^[ \\t]*(filled-new-array|invoke-(?:virtual|super|direct|static|interface))",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+        "opcode-format-51l": {
+            "comment": "Format: op vAA, #+BBBBBBBBBBBBBBBB",
+            "match": "^[ \\t]*(const-wide)(?!\/32)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(?i:((?:-0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}))|(?:(?:-0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}|8[0]{15})|0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}))L))\\b)(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "constant.numeric.smali" }
+            }
+        },
+        "opcode-format-51l-relaxed": {
+            "match": "^[ \\t]*(const-wide)(?!\\\/32)",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+        "opcode-format-31i": {
+            "comment": "Format: op vAA, #+BBBBBBBB",
+            "match": "^[ \\t]*(const(?:-wide\/32)?)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(?i:(-0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}))\\b)(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "variable.parameter.smali" },
+                "3": { "name": "constant.numeric.smali" }
+            }
+        },
+        "opcode-format-31i-relaxed": {
+            "match": "^[ \\t]*(const(?:-wide\/32)?)",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        },
+        "opcode-format-10t-20t-30t": {
+            "comment": "Format: op +AA(AA(AAAA))",
+            "match": "^[ \\t]*(goto(?:\/16|\/32)?) (:[A-Za-z_\\d]+)(?=[ \\t]*(#.*)?$)",
+            "captures":{
+                "1": { "name": "support.function.smali" },
+                "2": { "name": "keyword.control" }
+            }
+        },
+        "opcode-format-10t-20t-30t-relaxed": {
+            "match": "^[ \\t]*(goto(?:\/16|\/32)?)",
+            "captures": { "1": { "name": "invalid.illegal.smali" }}
+        }
+    },
+    "uuid": "d6fe4632-f21a-4533-8908-723df0b58ac0"
+}
