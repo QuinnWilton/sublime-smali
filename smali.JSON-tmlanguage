@@ -360,7 +360,7 @@
         },
         "opcode-format-11x": {
             "comment": "Format: op vAA",
-            "match": "^[ \\t]*(move-(?:result(?:-wide|-object)?|exception)|return(?:-wide|-object)?|monitor-(?:enter|exit)|throw)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b)(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*(move-(?:result(?:-wide|-object)?|exception)|return(?:-wide|-object)?|monitor-(?:enter|exit)|throw)[ \\t]+([vp](?:0|[1-9][\\d]{0,2}|2[0-4][\\d]|25[0-5])\\b)(?=[ \\t]*(#.*)?$)",
             "captures":{
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "variable.parameter.smali" }
@@ -372,7 +372,7 @@
         },
         "opcode-format-22x": {
             "comment": "Format: op vAA, vBBBB",
-            "match": "^[ \\t]*(move(?:-wide|-object)?\/from16)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*([vp](?:0|[1-9][\\d]{0,3}|[1-5][\\d]{4}|6[0-4][\\d]{3}|65[0-4][\\d]{2}|655[0-2][\\d]|6553[0-5])\\b)(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*(move(?:-wide|-object)?\/from16)[ \\t]+([vp](?:0|[1-9][\\d]{0,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*([vp](?:0|[1-9][\\d]{0,3}|[1-5][\\d]{4}|6[0-4][\\d]{3}|65[0-4][\\d]{2}|655[0-2][\\d]|6553[0-5])\\b)(?=[ \\t]*(#.*)?$)",
             "captures":{
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "variable.parameter.smali" },
@@ -411,7 +411,7 @@
         },
         "opcode-format-21c-string": {
             "comment": "Format: op vAA, string@BBBB",
-            "match": "^[ \\t]*(const-string)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(\")(.*?)((?<!\\\\)\")(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*(const-string)[ \\t]+([vp](?:0|[1-9][\\d]{0,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(\")(.*?)((?<!\\\\)\")(?=[ \\t]*(#.*)?$)",
             "captures":{
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "variable.parameter.smali" },
@@ -422,7 +422,7 @@
         },
         "opcode-format-21c-type": {
             "comment": "Format: op vAA, type@BBBB",
-            "match": "^[ \\t]*(const-class|check-cast|new-instance)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*\\[?(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*(const-class|check-cast|new-instance)[ \\t]+([vp](?:0|[1-9][\\d]{0,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*\\[?(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)(?=[ \\t]*(#.*)?$)",
             "captures":{
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "variable.parameter.smali" },
@@ -433,7 +433,7 @@
         },
         "opcode-format-21c-field": {
             "comment": "Format: op vAA, field@BBBB",
-            "match": "^[ \\t]*((?:sget|sput)(?:-wide|-object|-boolean|-byte|-char|-short)?)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)->([\\p{L}_\\$][\\w\\$]*):\\[?(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;))))(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*((?:sget|sput)(?:-wide|-object|-boolean|-byte|-char|-short)?)[ \\t]+([vp](?:0|[1-9][\\d]{0,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;)->([\\p{L}_\\$][\\w\\$]*):\\[?(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\\p{L}_][\\p{L}\\d_\\$]*(?:\/[\\p{L}_][\\p{L}\\d_\\$]*)*)(;))))(?=[ \\t]*(#.*)?$)",
             "captures":{
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "variable.parameter.smali" },
@@ -453,7 +453,7 @@
         },
         "opcode-format-21h": {
             "comment": "Format: op vAA, #+BBBB0000(00000000)",
-            "match": "^[ \\t]*(const(?:-wide)?\/high16)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(?i:(-0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3}|8000)|0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3})))\\b(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*(const(?:-wide)?\/high16)[ \\t]+([vp](?:0|[1-9][\\d]{0,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(?i:(-0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3}|8000)|0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3})))\\b(?=[ \\t]*(#.*)?$)",
             "captures":{
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "variable.parameter.smali" },
@@ -466,7 +466,7 @@
         },
         "opcode-format-21s": {
             "comment": "Format: op vAA, #+BBBB",
-            "match": "^[ \\t]*(const(?:-wide)?\/16)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(?i:(-0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3}|8000)|0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3})))\\b(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*(const(?:-wide)?\/16)[ \\t]+([vp](?:0|[1-9][\\d]{0,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(?i:(-0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3}|8000)|0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3})))\\b(?=[ \\t]*(#.*)?$)",
             "captures":{
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "variable.parameter.smali" },
@@ -479,7 +479,7 @@
         },
         "opcode-format-21t": {
             "comment": "Format: op vAA, +BBBB",
-            "match": "^[ \\t]*(if-(?:eq|ne|lt|ge|gt|le)z)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(:[A-Za-z_\\d]+)(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*(if-(?:eq|ne|lt|ge|gt|le)z)[ \\t]+([vp](?:0|[1-9][\\d]{0,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(:[A-Za-z_\\d]+)(?=[ \\t]*(#.*)?$)",
             "captures":{
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "variable.parameter.smali" },
@@ -492,7 +492,7 @@
         },
         "opcode-format-31t": {
             "comment": "Format: op vAA, +BBBBBBBB",
-            "match": "^[ \\t]*(filled-array-data|(?:packed|sparse)-switch)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(:[A-Za-z_\\d]+)(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*(filled-array-data|(?:packed|sparse)-switch)[ \\t]+([vp](?:0|[1-9][\\d]{0,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(:[A-Za-z_\\d]+)(?=[ \\t]*(#.*)?$)",
             "captures":{
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "variable.parameter.smali" },
@@ -505,7 +505,7 @@
         },
         "opcode-format-22b": {
             "comment": "Format: op vAA, vBB, #+CC",
-            "match": "^[ \\t]*((?:add|rsub|mul|div|rem|and|or|xor|shl|shr|ushr)-int\/lit8)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(?i:(-0x(?:[\\da-f]|[1-7][\\da-f]|80)|0x(?:[\\da-f]|[1-7][\\da-f])))\\b(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*((?:add|rsub|mul|div|rem|and|or|xor|shl|shr|ushr)-int\/lit8)[ \\t]+([vp](?:0|[1-9][\\d]{0,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*([vp](?:0|[1-9][\\d]{0,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(?i:(-0x(?:[\\da-f]|[1-7][\\da-f]|80)|0x(?:[\\da-f]|[1-7][\\da-f])))\\b(?=[ \\t]*(#.*)?$)",
             "captures":{
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "variable.parameter.smali" },
@@ -565,7 +565,7 @@
         },
         "opcode-format-22s": {
             "comment": "Format: op vA, vB, #+CCCC",
-            "match": "^[ \\t]*((?:add|rsub|mul|div|rem|and|or|xor)-int\/lit16)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(?i:(-0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3}|8000)|0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3})))\\b(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*((?:add|rsub|mul|div|rem|and|or|xor)-int\/lit16)[ \\t]+([vp](?:0|[1-9][\\d]{0,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*([vp](?:0|[1-9][\\d]{0,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(?i:(-0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3}|8000)|0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3})))\\b(?=[ \\t]*(#.*)?$)",
             "captures":{
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "variable.parameter.smali" },
@@ -594,7 +594,7 @@
 
         "opcode-format-23x": {
             "comment": "Format: op vAA, vBB, vCC",
-            "match": "^[ \\t]*((?:cmpl|cmpg)-(?:float|double)|cmp-long|(?:aget|aput)(?:-wide|-object|-boolean|-byte|-char|-short)?|(?:add|sub|mul|div|rem|and|or|xor|shl|shr|ushr)-(?:int|long)|(?:add|sub|mul|div|rem)-(?:float|double))[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b)(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*((?:cmpl|cmpg)-(?:float|double)|cmp-long|(?:aget|aput)(?:-wide|-object|-boolean|-byte|-char|-short)?|(?:add|sub|mul|div|rem|and|or|xor|shl|shr|ushr)-(?:int|long)|(?:add|sub|mul|div|rem)-(?:float|double))[ \\t]+([vp](?:0|[1-9][\\d]{0,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*([vp](?:0|[1-9][\\d]{0,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*([vp](?:0|[1-9][\\d]{0,2}|2[0-4][\\d]|25[0-5])\\b)(?=[ \\t]*(#.*)?$)",
             "captures":{
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "variable.parameter.smali" },
@@ -708,7 +708,7 @@
         },
         "opcode-format-51l": {
             "comment": "Format: op vAA, #+BBBBBBBBBBBBBBBB",
-            "match": "^[ \\t]*(const-wide)(?!\/32)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(?i:((?:-0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}))|(?:(?:-0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}|8[0]{15})|0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}))L))\\b)(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*(const-wide)(?!\/32)[ \\t]+([vp](?:0|[1-9][\\d]{0,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(?i:((?:-0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}))|(?:(?:-0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}|8[0]{15})|0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}))L))\\b)(?=[ \\t]*(#.*)?$)",
             "captures":{
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "variable.parameter.smali" },
@@ -721,7 +721,7 @@
         },
         "opcode-format-31i": {
             "comment": "Format: op vAA, #+BBBBBBBB",
-            "match": "^[ \\t]*(const(?:-wide\/32)?)[ \\t]+([vp](?:0|[1-9]|1[\\d]{1,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(?i:(-0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}))\\b)(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*(const(?:-wide\/32)?)[ \\t]+([vp](?:0|[1-9][\\d]{0,2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(?i:(-0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}))\\b)(?=[ \\t]*(#.*)?$)",
             "captures":{
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "variable.parameter.smali" },

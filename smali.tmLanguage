@@ -1210,7 +1210,7 @@
 			<key>comment</key>
 			<string>Format: op vAA</string>
 			<key>match</key>
-			<string>^[ \t]*(move-(?:result(?:-wide|-object)?|exception)|return(?:-wide|-object)?|monitor-(?:enter|exit)|throw)[ \t]+([vp](?:0|[1-9]|1[\d]{1,2}|2[0-4][\d]|25[0-5])\b)(?=[ \t]*(#.*)?$)</string>
+			<string>^[ \t]*(move-(?:result(?:-wide|-object)?|exception)|return(?:-wide|-object)?|monitor-(?:enter|exit)|throw)[ \t]+([vp](?:0|[1-9][\d]{0,2}|2[0-4][\d]|25[0-5])\b)(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-11x-relaxed</key>
 		<dict>
@@ -1321,7 +1321,7 @@
 			<key>comment</key>
 			<string>Format: op vAA, field@BBBB</string>
 			<key>match</key>
-			<string>^[ \t]*((?:sget|sput)(?:-wide|-object|-boolean|-byte|-char|-short)?)[ \t]+([vp](?:0|[1-9]|1[\d]{1,2}|2[0-4][\d]|25[0-5])\b),[ \t]*(L)([\p{L}_][\p{L}\d_\$]*(?:/[\p{L}_][\p{L}\d_\$]*)*)(;)-&gt;([\p{L}_\$][\w\$]*):\[?(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\p{L}_][\p{L}\d_\$]*(?:/[\p{L}_][\p{L}\d_\$]*)*)(;))))(?=[ \t]*(#.*)?$)</string>
+			<string>^[ \t]*((?:sget|sput)(?:-wide|-object|-boolean|-byte|-char|-short)?)[ \t]+([vp](?:0|[1-9][\d]{0,2}|2[0-4][\d]|25[0-5])\b),[ \t]*(L)([\p{L}_][\p{L}\d_\$]*(?:/[\p{L}_][\p{L}\d_\$]*)*)(;)-&gt;([\p{L}_\$][\w\$]*):\[?(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\p{L}_][\p{L}\d_\$]*(?:/[\p{L}_][\p{L}\d_\$]*)*)(;))))(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-21c-relaxed</key>
 		<dict>
@@ -1369,7 +1369,7 @@
 			<key>comment</key>
 			<string>Format: op vAA, string@BBBB</string>
 			<key>match</key>
-			<string>^[ \t]*(const-string)[ \t]+([vp](?:0|[1-9]|1[\d]{1,2}|2[0-4][\d]|25[0-5])\b),[ \t]*(")(.*?)((?&lt;!\\)")(?=[ \t]*(#.*)?$)</string>
+			<string>^[ \t]*(const-string)[ \t]+([vp](?:0|[1-9][\d]{0,2}|2[0-4][\d]|25[0-5])\b),[ \t]*(")(.*?)((?&lt;!\\)")(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-21c-type</key>
 		<dict>
@@ -1404,7 +1404,7 @@
 			<key>comment</key>
 			<string>Format: op vAA, type@BBBB</string>
 			<key>match</key>
-			<string>^[ \t]*(const-class|check-cast|new-instance)[ \t]+([vp](?:0|[1-9]|1[\d]{1,2}|2[0-4][\d]|25[0-5])\b),[ \t]*\[?(L)([\p{L}_][\p{L}\d_\$]*(?:/[\p{L}_][\p{L}\d_\$]*)*)(;)(?=[ \t]*(#.*)?$)</string>
+			<string>^[ \t]*(const-class|check-cast|new-instance)[ \t]+([vp](?:0|[1-9][\d]{0,2}|2[0-4][\d]|25[0-5])\b),[ \t]*\[?(L)([\p{L}_][\p{L}\d_\$]*(?:/[\p{L}_][\p{L}\d_\$]*)*)(;)(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-21h</key>
 		<dict>
@@ -1429,7 +1429,7 @@
 			<key>comment</key>
 			<string>Format: op vAA, #+BBBB0000(00000000)</string>
 			<key>match</key>
-			<string>^[ \t]*(const(?:-wide)?/high16)[ \t]+([vp](?:0|[1-9]|1[\d]{1,2}|2[0-4][\d]|25[0-5])\b),[ \t]*(?i:(-0x(?:0|[1-9a-f][\da-f]{0,2}|[1-7][\da-f]{3}|8000)|0x(?:0|[1-9a-f][\da-f]{0,2}|[1-7][\da-f]{3})))\b(?=[ \t]*(#.*)?$)</string>
+			<string>^[ \t]*(const(?:-wide)?/high16)[ \t]+([vp](?:0|[1-9][\d]{0,2}|2[0-4][\d]|25[0-5])\b),[ \t]*(?i:(-0x(?:0|[1-9a-f][\da-f]{0,2}|[1-7][\da-f]{3}|8000)|0x(?:0|[1-9a-f][\da-f]{0,2}|[1-7][\da-f]{3})))\b(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-21h-relaxed</key>
 		<dict>
@@ -1467,7 +1467,7 @@
 			<key>comment</key>
 			<string>Format: op vAA, #+BBBB</string>
 			<key>match</key>
-			<string>^[ \t]*(const(?:-wide)?/16)[ \t]+([vp](?:0|[1-9]|1[\d]{1,2}|2[0-4][\d]|25[0-5])\b),[ \t]*(?i:(-0x(?:0|[1-9a-f][\da-f]{0,2}|[1-7][\da-f]{3}|8000)|0x(?:0|[1-9a-f][\da-f]{0,2}|[1-7][\da-f]{3})))\b(?=[ \t]*(#.*)?$)</string>
+			<string>^[ \t]*(const(?:-wide)?/16)[ \t]+([vp](?:0|[1-9][\d]{0,2}|2[0-4][\d]|25[0-5])\b),[ \t]*(?i:(-0x(?:0|[1-9a-f][\da-f]{0,2}|[1-7][\da-f]{3}|8000)|0x(?:0|[1-9a-f][\da-f]{0,2}|[1-7][\da-f]{3})))\b(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-21s-relaxed</key>
 		<dict>
@@ -1505,7 +1505,7 @@
 			<key>comment</key>
 			<string>Format: op vAA, +BBBB</string>
 			<key>match</key>
-			<string>^[ \t]*(if-(?:eq|ne|lt|ge|gt|le)z)[ \t]+([vp](?:0|[1-9]|1[\d]{1,2}|2[0-4][\d]|25[0-5])\b),[ \t]*(:[A-Za-z_\d]+)(?=[ \t]*(#.*)?$)</string>
+			<string>^[ \t]*(if-(?:eq|ne|lt|ge|gt|le)z)[ \t]+([vp](?:0|[1-9][\d]{0,2}|2[0-4][\d]|25[0-5])\b),[ \t]*(:[A-Za-z_\d]+)(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-21t-relaxed</key>
 		<dict>
@@ -1548,7 +1548,7 @@
 			<key>comment</key>
 			<string>Format: op vAA, vBB, #+CC</string>
 			<key>match</key>
-			<string>^[ \t]*((?:add|rsub|mul|div|rem|and|or|xor|shl|shr|ushr)-int/lit8)[ \t]+([vp](?:0|[1-9]|1[\d]{1,2}|2[0-4][\d]|25[0-5])\b),[ \t]*([vp](?:0|[1-9]|1[\d]{1,2}|2[0-4][\d]|25[0-5])\b),[ \t]*(?i:(-0x(?:[\da-f]|[1-7][\da-f]|80)|0x(?:[\da-f]|[1-7][\da-f])))\b(?=[ \t]*(#.*)?$)</string>
+			<string>^[ \t]*((?:add|rsub|mul|div|rem|and|or|xor|shl|shr|ushr)-int/lit8)[ \t]+([vp](?:0|[1-9][\d]{0,2}|2[0-4][\d]|25[0-5])\b),[ \t]*([vp](?:0|[1-9][\d]{0,2}|2[0-4][\d]|25[0-5])\b),[ \t]*(?i:(-0x(?:[\da-f]|[1-7][\da-f]|80)|0x(?:[\da-f]|[1-7][\da-f])))\b(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-22b-relaxed</key>
 		<dict>
@@ -1754,7 +1754,7 @@
 			<key>comment</key>
 			<string>Format: op vA, vB, #+CCCC</string>
 			<key>match</key>
-			<string>^[ \t]*((?:add|rsub|mul|div|rem|and|or|xor)-int/lit16)[ \t]+([vp](?:0|[1-9]|1[\d]{1,2}|2[0-4][\d]|25[0-5])\b),[ \t]*([vp](?:0|[1-9]|1[\d]{1,2}|2[0-4][\d]|25[0-5])\b),[ \t]*(?i:(-0x(?:0|[1-9a-f][\da-f]{0,2}|[1-7][\da-f]{3}|8000)|0x(?:0|[1-9a-f][\da-f]{0,2}|[1-7][\da-f]{3})))\b(?=[ \t]*(#.*)?$)</string>
+			<string>^[ \t]*((?:add|rsub|mul|div|rem|and|or|xor)-int/lit16)[ \t]+([vp](?:0|[1-9][\d]{0,2}|2[0-4][\d]|25[0-5])\b),[ \t]*([vp](?:0|[1-9][\d]{0,2}|2[0-4][\d]|25[0-5])\b),[ \t]*(?i:(-0x(?:0|[1-9a-f][\da-f]{0,2}|[1-7][\da-f]{3}|8000)|0x(?:0|[1-9a-f][\da-f]{0,2}|[1-7][\da-f]{3})))\b(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-22s-relaxed</key>
 		<dict>
@@ -1835,7 +1835,7 @@
 			<key>comment</key>
 			<string>Format: op vAA, vBBBB</string>
 			<key>match</key>
-			<string>^[ \t]*(move(?:-wide|-object)?/from16)[ \t]+([vp](?:0|[1-9]|1[\d]{1,2}|2[0-4][\d]|25[0-5])\b),[ \t]*([vp](?:0|[1-9][\d]{0,3}|[1-5][\d]{4}|6[0-4][\d]{3}|65[0-4][\d]{2}|655[0-2][\d]|6553[0-5])\b)(?=[ \t]*(#.*)?$)</string>
+			<string>^[ \t]*(move(?:-wide|-object)?/from16)[ \t]+([vp](?:0|[1-9][\d]{0,2}|2[0-4][\d]|25[0-5])\b),[ \t]*([vp](?:0|[1-9][\d]{0,3}|[1-5][\d]{4}|6[0-4][\d]{3}|65[0-4][\d]{2}|655[0-2][\d]|6553[0-5])\b)(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-22x-relaxed</key>
 		<dict>
@@ -1878,7 +1878,7 @@
 			<key>comment</key>
 			<string>Format: op vAA, vBB, vCC</string>
 			<key>match</key>
-			<string>^[ \t]*((?:cmpl|cmpg)-(?:float|double)|cmp-long|(?:aget|aput)(?:-wide|-object|-boolean|-byte|-char|-short)?|(?:add|sub|mul|div|rem|and|or|xor|shl|shr|ushr)-(?:int|long)|(?:add|sub|mul|div|rem)-(?:float|double))[ \t]+([vp](?:0|[1-9]|1[\d]{1,2}|2[0-4][\d]|25[0-5])\b),[ \t]*([vp](?:0|[1-9]|1[\d]{1,2}|2[0-4][\d]|25[0-5])\b),[ \t]*([vp](?:0|[1-9]|1[\d]{1,2}|2[0-4][\d]|25[0-5])\b)(?=[ \t]*(#.*)?$)</string>
+			<string>^[ \t]*((?:cmpl|cmpg)-(?:float|double)|cmp-long|(?:aget|aput)(?:-wide|-object|-boolean|-byte|-char|-short)?|(?:add|sub|mul|div|rem|and|or|xor|shl|shr|ushr)-(?:int|long)|(?:add|sub|mul|div|rem)-(?:float|double))[ \t]+([vp](?:0|[1-9][\d]{0,2}|2[0-4][\d]|25[0-5])\b),[ \t]*([vp](?:0|[1-9][\d]{0,2}|2[0-4][\d]|25[0-5])\b),[ \t]*([vp](?:0|[1-9][\d]{0,2}|2[0-4][\d]|25[0-5])\b)(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-23x-relaxed</key>
 		<dict>
@@ -1916,7 +1916,7 @@
 			<key>comment</key>
 			<string>Format: op vAA, #+BBBBBBBB</string>
 			<key>match</key>
-			<string>^[ \t]*(const(?:-wide/32)?)[ \t]+([vp](?:0|[1-9]|1[\d]{1,2}|2[0-4][\d]|25[0-5])\b),[ \t]*(?i:(-0x(?:0|[1-9a-f][\da-f]{0,6}|[1-7][\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\da-f]{0,6}|[1-7][\da-f]{7}))\b)(?=[ \t]*(#.*)?$)</string>
+			<string>^[ \t]*(const(?:-wide/32)?)[ \t]+([vp](?:0|[1-9][\d]{0,2}|2[0-4][\d]|25[0-5])\b),[ \t]*(?i:(-0x(?:0|[1-9a-f][\da-f]{0,6}|[1-7][\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\da-f]{0,6}|[1-7][\da-f]{7}))\b)(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-31i-relaxed</key>
 		<dict>
@@ -1954,7 +1954,7 @@
 			<key>comment</key>
 			<string>Format: op vAA, +BBBBBBBB</string>
 			<key>match</key>
-			<string>^[ \t]*(filled-array-data|(?:packed|sparse)-switch)[ \t]+([vp](?:0|[1-9]|1[\d]{1,2}|2[0-4][\d]|25[0-5])\b),[ \t]*(:[A-Za-z_\d]+)(?=[ \t]*(#.*)?$)</string>
+			<string>^[ \t]*(filled-array-data|(?:packed|sparse)-switch)[ \t]+([vp](?:0|[1-9][\d]{0,2}|2[0-4][\d]|25[0-5])\b),[ \t]*(:[A-Za-z_\d]+)(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-31t-relaxed</key>
 		<dict>
@@ -2436,7 +2436,7 @@
 			<key>comment</key>
 			<string>Format: op vAA, #+BBBBBBBBBBBBBBBB</string>
 			<key>match</key>
-			<string>^[ \t]*(const-wide)(?!/32)[ \t]+([vp](?:0|[1-9]|1[\d]{1,2}|2[0-4][\d]|25[0-5])\b),[ \t]*(?i:((?:-0x(?:0|[1-9a-f][\da-f]{0,6}|[1-7][\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\da-f]{0,6}|[1-7][\da-f]{7}))|(?:(?:-0x(?:0|[1-9a-f][\da-f]{0,14}|[1-7][\da-f]{15}|8[0]{15})|0x(?:0|[1-9a-f][\da-f]{0,14}|[1-7][\da-f]{15}))L))\b)(?=[ \t]*(#.*)?$)</string>
+			<string>^[ \t]*(const-wide)(?!/32)[ \t]+([vp](?:0|[1-9][\d]{0,2}|2[0-4][\d]|25[0-5])\b),[ \t]*(?i:((?:-0x(?:0|[1-9a-f][\da-f]{0,6}|[1-7][\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\da-f]{0,6}|[1-7][\da-f]{7}))|(?:(?:-0x(?:0|[1-9a-f][\da-f]{0,14}|[1-7][\da-f]{15}|8[0]{15})|0x(?:0|[1-9a-f][\da-f]{0,14}|[1-7][\da-f]{15}))L))\b)(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-51l-relaxed</key>
 		<dict>
