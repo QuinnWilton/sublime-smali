@@ -15,7 +15,7 @@
 
 # static fields
 .field private static final serialVersionUID:J = 0x123432323523553L
-
+.field public static final S:[[B = null
 .field public static final enum NO_FILL:Lcom/google/ads/AdRequest$ErrorCode;
 
 .annotation build Landroid/annotation/SuppressLint;
@@ -70,11 +70,13 @@
   .locals 5 # test
   .registers 3
 
-  .prologue
+  .prologue #test
   .local v0, allSettings:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;*>;"
   .locals 5 lookahead
 
   .line 1
+
+  fill-array-data v0, :array_0
 
   .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
   .catchall {:try_start_1e .. :try_end_2d} :catchall_38
@@ -84,18 +86,25 @@
 
   :someLabel
 
-    .sparse-switch
-        0x1 -> :sswitch_b5
-        0x2 -> :sswitch_bb
-        0x4 -> :sswitch_c2
-        0x8 -> :sswitch_c9
-        0x10 -> :sswitch_d0
-    .end sparse-switch
+  .array-data 0x1 #test
+      0xebt
+      0x2bt
+      0x23t
+      0x33t
+  .end array-data
 
-    :pswitch_data_34
-    .packed-switch 0x2
-        :pswitch_9
-    .end packed-switch
+  .sparse-switch
+      0x1 -> :sswitch_b5
+      0x2 -> :sswitch_bb
+      0x4 -> :sswitch_c2
+      0x8 -> :sswitch_c9
+      0x10 -> :sswitch_d0
+  .end sparse-switch
+
+  :pswitch_data_34
+  .packed-switch 0x2
+      :pswitch_9
+  .end packed-switch
 .end method
 
 .method private test_10x()V
@@ -244,6 +253,7 @@
   sget p0, Lsynth$class;->varName:[I
   sget-wide p0, Ljava/lang/String;->$var$Name:[Ljava/lang/Stringç; # test
   sget-object p0, Ljava/lang/String;->$var$Name:Ljava/lang/String;
+  sget-object v3, Lcom/google/update/RR;->S:[[B
   sget-boolean p0, Ljava/lang/String;->$var$Name:Ljava/lang/String;
   sget-byte p0, Ljava/lang/String;->$var$Name:Ljava/lang/String;
   sget-char p0, Ljava/lang/String;->$var$Name:Ljava/lang/String;
