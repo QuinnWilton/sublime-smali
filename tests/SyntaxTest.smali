@@ -6,6 +6,7 @@
 .class interface abstract Landroid/support/v13/app/FragmentCompat$FragmentCompatImpl;
 .class public final enum Lcom/google/ads/AdRequest$ErrorCode;
 .class public final LTestClass;
+.class Lcom/flashp/data/$55$5;
 .super Ljava/lang/Object;
 .source "DoesNotExistBecauseHardcore.java"
 
@@ -151,7 +152,7 @@
 .method private test_12x()V
   # Test 12x Coverage - vA, vB
   move-wide v15,v15 #test
-  move-object v0,p0
+  move-object v1,p1
   array-length v0,  v0
   neg-int v0, v0
   neg-long v0, v0
@@ -245,9 +246,10 @@
   const-string v255,"this\n is \"a\" test" #test
 
   # Test 21c Coverage - op vAA, type@BBBB
-  const-class v0,Ljava/lang/Objeçt; #test
-  check-cast v0,  Ljava/lang/Objeçt;
-  new-instance p0, Ljava/lang/Objeçt;
+  const-class v1,Ljava/lang/Objeçt; #test
+  check-cast v2,  Ljava/lang/Objeçt;
+  new-instance p3, Ljava/lang/Objeçt;
+  new-instance v1, Lcom/flashp/xml/$SSSS;
 
   # Test 21c Coverage - op vAA, field@BBBB
   sget p0, Lsynth$class;->varName:[I
@@ -321,14 +323,14 @@
 
 .method private test_31t()V
   # Test Coverage - op vAA, +BBBBBBBB
-  filled-array-data v0, :array_data_0
+  fill-array-data v0, :array_data_0
   packed-switch v255,:pswitch
   sparse-switch v0, :sparse_switch
 
   # Test Correctness
-  filled-array-data v256, :123_asfd
-  filled-array-data v0, 123
-  filled-array-data v0, :label lookahead!
+  fill-array-data v256, :123_asfd
+  fill-array-data v0, 123
+  fill-array-data v0, :label lookahead!
 .end method
 
 .method private test_22b()V
@@ -361,14 +363,17 @@
 
   # Test Coverage - op vA, vB, field@CCCC
   iget v0, v0, Ljava/lang/Hello;->field:[Lsome/Class;
+  iget v0, p0, Lcom/flashp/data/$55$5;->l1llI:I
   iget-wide v0, v0, Ljava/lang/Hello;->field$1:Lsome/Class;
   iget-object v0, v0, Ljava/lang/Hello;->field:Lsome/Class$1;
   iget-byte v0, v0, Ljava/lang/Hello;->field:Lsome/Class;
   iget-char v0, v0, Ljava/lang/Hello;->field:Lsome/Class;
   iget-short v0, v0, Ljava/lang/Hello;->field:Lsome/Class;
   iput v0, v0, Ljava/lang/Hello;->field:Lsome/Class;
+  iput p3, p0, Lcom/flashp/data/$55$5;->l1llI:I
   iput-wide v0, v0, Ljava/lang/Hello;->field:Lsome/Class;
   iput-object v0, v0, Ljava/lang/Hello;->field:Lsome/Class;
+  iput-object p1, p0, Lcom/flashp/data/$55$5;->ll1I:Lcom/flashp/data/ll111;
   iput-boolean v0, v0, Ljava/lang/Hello;->field:Lsome/Class;
   iput-byte v0, v0, Ljava/lang/Hello;->field:Lsome/Class;
   iput-char v0, v0, Ljava/lang/Hello;->field:Lsome/Class;
@@ -502,11 +507,12 @@
   invoke-super {v0, v0, v1}, Lasdf/some$Class;->some$METHODç(SIC)Ljava/lang/Object;
   invoke-direct {v0, v0, v0, v0, v0}, Lcom/google/something;->checkLicense(ZZ[Lsome/other$Class;ZI)[Z
   invoke-static {v0, v0, v0, v0, v0}, Lcom/google/something;->checkLicense(ZZLsome/other$Class;ZI)Z
+  invoke-static {}, Lcom/flashp/http/$S555;->UOGCO()Lcom/flashp/http/$S555;
   invoke-interface {v0, v0, v0, v0, v0}, Lcom/google/something;->checkLicense(ZZLsome/other$Class;ZI)Z
 
   # Test Correctness
   filled-new-array {v0, v0}, V
-  invoke-static {}, Lsome/Class;->asdf()[V
+  invoke-static {}, Lsome/Class;->asdf()[V # can't return array of void
   filled-new-array {v0, v0, v0, v0, v0}, Lclass
   filled-new-array {v0}, LçjΩ7ç/UNICODE;
   filled-new-array {v0, v0, v0, v0, v0, v0}, [LçjΩ7ç/UNICODE;
@@ -552,15 +558,12 @@
 
 .method private test_10t_20t_30t()V
   # Test Coverage - op +AA(AA(AAAA))
-
   goto :label_123
   goto :LABEL_123
   goto/16 :label_123
   goto/16 :LABEL_123
   goto/32 :label_123
   goto/32 :LABEL_123
-
-  :label_123
 
   # Test Correctness
   goto :label_123 lookahead!
