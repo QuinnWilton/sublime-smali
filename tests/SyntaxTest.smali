@@ -357,7 +357,7 @@
   # Test Coverage - op vA, vB, type@CCCC
   instance-of v0,v0,Ljava/lang/Object;
   new-array v0, v0, [Ljava/lang/Hello;
-  new-array v0, v0, [I
+  new-array v0, v0, [[I
 
   # Test Coverage - op vA, vB, field@CCCC
   iget v0, v0, Ljava/lang/Hello;->field:[Lsome/Class;
