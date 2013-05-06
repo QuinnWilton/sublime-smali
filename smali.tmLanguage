@@ -1074,7 +1074,7 @@
 				</dict>
 			</dict>
 			<key>comment</key>
-			<string>End of line comment</string>
+			<string>In-line comment</string>
 			<key>match</key>
 			<string>(#.*)$</string>
 		</dict>

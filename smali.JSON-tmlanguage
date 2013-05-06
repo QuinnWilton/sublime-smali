@@ -337,7 +337,8 @@
                         "3": { "name": "entity.name.tag.smali" },
                         "4": { "name": "entity.name.tag.smali" },
                         "5": { "name": "constant.numeric.smali" },
-                        "6": { "name": "entity.name.tag.smali" }                    }
+                        "6": { "name": "entity.name.tag.smali" }
+                    }
                 }
             ]
         },
@@ -382,7 +383,7 @@
             "captures": { "1": { "name": "comment.line.number-sign.smali"} }
         },
         "comment-inline": {
-            "comment": "End of line comment",
+            "comment": "In-line comment",
             "match": "(#.*)$",
             "captures": { "1": { "name": "comment.line.number-sign.smali"} }
         },

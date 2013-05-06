@@ -13,7 +13,6 @@
 # interfaces
 .implements Ljava/io/Serializable;
 
-
 # static fields
 .field private static final serialVersionUID:J = 0x123432323523553L
 .field public static final S:[[B = null
