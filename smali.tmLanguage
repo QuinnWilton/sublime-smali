@@ -82,7 +82,7 @@
 			<key>comment</key>
 			<string>Class name</string>
 			<key>match</key>
-			<string>^[ \t]*(\.class)[ \t]*((?:(?:interface|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[ \t]+)*)[ \t]*(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)(?=[ \t]*(#.*)?$)</string>
+			<string>^[ \t]*(\.class)[ \t]*((?:(?:interface|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum|annotation)[ \t]+)*)[ \t]*(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -983,7 +983,7 @@
 				</dict>
 			</dict>
 			<key>comment</key>
-			<string>This is another hack because sublime can't handle multiple line 'end' regex.</string>
+			<string>This is another hack because sublime can't handle multi-line regex, particulaly for 'end'.</string>
 			<key>match</key>
 			<string>^[ \t]*(value)[ \t]*=[ \t]*(?:(")(.*?)((?&lt;!\\)")?|(?:\.(enum|subannotation)[ \t]+)?(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))(?:-&gt;(?:([\p{L}_\$][\w\$]*):[\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))))|(&lt;init&gt;|&lt;clinit&gt;|(?:[\$\p{L}_][\p{L}\d_\$]*))\(((?:[\[]*(?:Z|B|S|C|I|J|F|D|L(?:[\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*);))*)\)(?:(V)|[\[]*(Z|B|S|C|I|J|F|D)|[\[]*(?:(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)))))?(?=[ \t]*(#.*)?$)</string>
 		</dict>

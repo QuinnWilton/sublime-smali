@@ -6,6 +6,8 @@
 .class interface abstract Landroid/support/v13/app/FragmentCompat$FragmentCompatImpl;
 .class public final enum Lcom/google/ads/AdRequest$ErrorCode;
 .class public final LTestClass;
+.class public interface abstract annotation Landroid/annotation/TargetApi;
+
 .class Lcom/flashp/data/$55$5;
 .super Ljava/lang/Object;
 .source "DoesNotExistBecauseHardcore.java"
@@ -46,11 +48,19 @@
             "Ljava/util/HashMap",
             "<",
             "Ljava/lang/String;",
-            "Ljava/lang/String;",
             ">;)V"
         }
     .end annotation
 .end field
+
+.annotation runtime Ljava/lang/annotation/Target;
+    value = {
+        .enum Ljava/lang/annotation/ElementType;->TYPE:Ljava/lang/annotation/ElementType;,
+        .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;,
+        .enum Ljava/lang/annotation/ElementType;->CONSTRUCTOR:Ljava/lang/annotation/ElementType;
+    }
+.end annotation
+
 
 .field private someVar:[Ljava/lang/String;
 .field private someVar:[Z

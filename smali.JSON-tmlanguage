@@ -18,7 +18,7 @@
         { "include": "#field-end" },
         {
             "comment": "Class name",
-            "match": "^[ \\t]*(\\.class)[ \\t]*((?:(?:interface|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[ \\t]+)*)[ \\t]*(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;)(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*(\\.class)[ \\t]*((?:(?:interface|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum|annotation)[ \\t]+)*)[ \\t]*(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;)(?=[ \\t]*(#.*)?$)",
             "captures":{
                 "1": { "name": "constant.language.smali" },
                 "2": { "name": "variable.parameter.smali" },
@@ -295,7 +295,7 @@
             }
         },
         "annotation-value": {
-            "comment": "This is another hack because sublime can't handle multiple line 'end' regex.",
+            "comment": "This is another hack because sublime can't handle multi-line regex, particulaly for 'end'.",
             "match": "^[ \\t]*(value)[ \\t]*=[ \\t]*(?:(\")(.*?)((?<!\\\\)\")?|(?:\\.(enum|subannotation)[ \\t]+)?(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;))(?:->(?:([\\p{L}_\\$][\\w\\$]*):[\\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;))))|(<init>|<clinit>|(?:[\\$\\p{L}_][\\p{L}\\d_\\$]*))\\(((?:[\\[]*(?:Z|B|S|C|I|J|F|D|L(?:[\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*);))*)\\)(?:(V)|[\\[]*(Z|B|S|C|I|J|F|D)|[\\[]*(?:(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;)))))?(?=[ \\t]*(#.*)?$)",
             "captures": {
                 "1": { "name": "support.function.smali" },
