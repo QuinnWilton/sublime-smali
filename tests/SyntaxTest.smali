@@ -247,6 +247,7 @@
   # Test 21c Coverage - op vAA, type@BBBB
   const-class v1,Ljava/lang/Objeçt; #test
   check-cast v2,  Ljava/lang/Objeçt;
+  check-cast v4, [[B
   new-instance p3, Ljava/lang/Objeçt;
   new-instance v1, Lcom/flashp/xml/$SSSS;
 

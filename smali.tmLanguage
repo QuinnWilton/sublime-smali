@@ -82,7 +82,7 @@
 			<key>comment</key>
 			<string>Class name</string>
 			<key>match</key>
-			<string>^[ \t]*(\.class)[ \t]*(?:(?:interface|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[ \t]+)*[ \t]*(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)(?=[ \t]*(#.*)?$)</string>
+			<string>^[ \t]*(\.class)[ \t]*((?:(?:interface|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[ \t]+)*)[ \t]*(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -1556,14 +1556,19 @@
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.tag.smali</string>
+					<string>constant.numeric.smali</string>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>constant.numeric.smali</string>
+					<string>entity.name.tag.smali</string>
 				</dict>
 				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.smali</string>
+				</dict>
+				<key>6</key>
 				<dict>
 					<key>name</key>
 					<string>entity.name.tag.smali</string>
@@ -1572,7 +1577,7 @@
 			<key>comment</key>
 			<string>Format: op vAA, type@BBBB</string>
 			<key>match</key>
-			<string>^[ \t]*(const-class|check-cast|new-instance)[ \t]+([vp](?:0|[1-9][\d]?|1[\d]{2}|2[0-4][\d]|25[0-5])\b),[ \t]*[\[]*(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)(?=[ \t]*(#.*)?$)</string>
+			<string>^[ \t]*(const-class|check-cast|new-instance)[ \t]+([vp](?:0|[1-9][\d]?|1[\d]{2}|2[0-4][\d]|25[0-5])\b),[ \t]*[\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))))(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-21h</key>
 		<dict>

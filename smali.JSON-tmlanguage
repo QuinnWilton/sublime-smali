@@ -18,7 +18,7 @@
         { "include": "#field-end" },
         {
             "comment": "Class name",
-            "match": "^[ \\t]*(\\.class)[ \\t]*(?:(?:interface|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[ \\t]+)*[ \\t]*(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;)(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*(\\.class)[ \\t]*((?:(?:interface|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[ \\t]+)*)[ \\t]*(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;)(?=[ \\t]*(#.*)?$)",
             "captures":{
                 "1": { "name": "constant.language.smali" },
                 "2": { "name": "variable.parameter.smali" },
@@ -473,13 +473,14 @@
         },
         "opcode-format-21c-type": {
             "comment": "Format: op vAA, type@BBBB",
-            "match": "^[ \\t]*(const-class|check-cast|new-instance)[ \\t]+([vp](?:0|[1-9][\\d]?|1[\\d]{2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*[\\[]*(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;)(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*(const-class|check-cast|new-instance)[ \\t]+([vp](?:0|[1-9][\\d]?|1[\\d]{2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*[\\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;))))(?=[ \\t]*(#.*)?$)",
             "captures":{
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "variable.parameter.smali" },
-                "3": { "name": "entity.name.tag.smali" },
-                "4": { "name": "constant.numeric.smali" },
-                "5": { "name": "entity.name.tag.smali" }
+                "3": { "name": "constant.numeric.smali" },
+                "4": { "name": "entity.name.tag.smali" },
+                "5": { "name": "constant.numeric.smali" },
+                "6": { "name": "entity.name.tag.smali" }
             }
         },
         "opcode-format-21c-field": {
