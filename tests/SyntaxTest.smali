@@ -115,6 +115,10 @@
   .packed-switch 0x2
       :pswitch_9
   .end packed-switch
+
+  .packed-switch 0x7f090005
+    :pswitch_0
+  .end packed-switch
 .end method
 
 .method private test_10x()V
