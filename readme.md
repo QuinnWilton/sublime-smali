@@ -5,6 +5,10 @@ Context-aware syntax highlighting for Sublime Text 2.
 
 Installation
 ------------
+If you have Package Manager, just search for and install _Smali_.
+
+
+WITHOUT Package Manager:
 * Navigate to Sublime's packages directory
   * Command + Shift + P, "Preferences: Browse Packages"
 * Create a directory named _Smali_
