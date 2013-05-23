@@ -67,12 +67,13 @@
 .field static final DEBUG:Z = false
 .field static final DEBUG:Z = true
 .field private static final MC_AD_SIZES:[Ljava/lang/String; = null
+.field public static final TYPE_INFO_ONLINE:B = 0x2t
 
 
 .method
 .end method
 
-.method public static final declared-synchronized synthetic $onCreate(Landroid/app/Activity;)V
+.method public static final bridge varargs declared-synchronized synthetic $onCreate(Landroid/app/Activity;)V
 .end method
 
 .method public static final main([ILjava/lang/String;)[Ljava/lang;
@@ -119,6 +120,10 @@
   .packed-switch 0x7f090005
     :pswitch_0
   .end packed-switch
+
+    .packed-switch -0x1
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method private test_10x()V

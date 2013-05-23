@@ -49,7 +49,7 @@
         },
         {
             "comment": "Method signature and body",
-            "begin": "^[ \\t]*(\\.method)[ \\t]*((?:(?:declared-synchronized|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[ \\t]+)*)(constructor )?(<init>|<clinit>|(?:[\\$\\p{L}_][\\p{L}\\d_\\$]*))\\(((?:[\\[]*(?:Z|B|S|C|I|J|F|D|L(?:[\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*);))*)\\)(?:(V)|[\\[]*(Z|B|S|C|I|J|F|D)|[\\[]*(?:(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;)))(?=[ \\t]*(#.*)?$)",
+            "begin": "^[ \\t]*(\\.method)[ \\t]*((?:(?:bridge|varargs|declared-synchronized|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[ \\t]+)*)(constructor )?(<init>|<clinit>|(?:[\\$\\p{L}_][\\p{L}\\d_\\$]*))\\(((?:[\\[]*(?:Z|B|S|C|I|J|F|D|L(?:[\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*);))*)\\)(?:(V)|[\\[]*(Z|B|S|C|I|J|F|D)|[\\[]*(?:(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;)))(?=[ \\t]*(#.*)?$)",
             "beginCaptures": {
                 "1": { "name": "constant.language.smali" },
                 "2": { "name": "variable.parameter.smali" },
@@ -137,8 +137,8 @@
                     ]
                 },
                 {
-                    "comment": "Begin Packed Switch",
-                    "match": "^[ \\t]*(\\.packed-switch)[ \\t]+(0x(?i:0|[1-9a-f][\\da-f]{0,3}))(?=[ \\t]*(#.*)?$)",
+                    "comment": "Begin Packed Switch, no idea what literal limit is for these. Have seen up to 0x7f090005",
+                    "match": "^[ \\t]*(\\.packed-switch)[ \\t]+(-0x1|0x(?i:0|[1-9a-f][\\da-f]*))(?=[ \\t]*(#.*)?$)",
                     "captures": {
                         "1": { "name": "constant.language.smali" },
                         "2": { "name": "constant.numeric.smali" }
@@ -239,7 +239,7 @@
     "repository": {
         "field": {
             "comment": "Field",
-            "match": "^[ \\t]*(\\.field)[ \\t]+((?:(?:public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[ \\t]+)*)([\\p{L}_\\$][\\w\\$]*):[\\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;))))(?:[ \\t]+=[ \\t]+(?:(null|true|false)|(?i:((?:-0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}))|(?:(?:-0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}|8[0]{15})|0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}))L))\\b)|(\")(.*?)((?<!\\\\)\")))?(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*(\\.field)[ \\t]+((?:(?:bridge|varargs|declared-synchronized|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[ \\t]+)*)([\\p{L}_\\$][\\w\\$]*):[\\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;))))(?:[ \\t]+=[ \\t]+(?:(null|true|false)|(?i:((?:-0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}))|(?:(?:-0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}|8[0]{15})|0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}))[Lt]?))\\b)|(\")(.*?)((?<!\\\\)\")))?(?=[ \\t]*(#.*)?$)",
             "captures": {
                 "1": { "name": "constant.language.smali"},
                 "2": { "name": "variable.parameter.smali" },
