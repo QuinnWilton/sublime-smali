@@ -7,6 +7,7 @@
 .class public final enum Lcom/google/ads/AdRequest$ErrorCode;
 .class public final LTestClass;
 .class public interface abstract annotation Landroid/annotation/TargetApi;
+.class public Lo/AUX$ঽ্;
 
 .class Lcom/flashp/data/$55$5;
 .super Ljava/lang/Object;
@@ -19,6 +20,7 @@
 .field private static final serialVersionUID:J = 0x123432323523553L
 .field public static final S:[[B = null
 .field public static final enum NO_FILL:Lcom/google/ads/AdRequest$ErrorCode;
+.field public static final i:C = 'i'
 
 .annotation build Landroid/annotation/SuppressLint;
 .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
@@ -76,27 +78,10 @@
 .method public static final bridge varargs declared-synchronized synthetic $onCreate(Landroid/app/Activity;)V
 .end method
 
-.method public static final main([ILjava/lang/String;)[Ljava/lang;
-  # Test Directive Coverage
-  .locals 5 # test
-  .registers 3
-
-  .prologue #test
-  .local v0, allSettings:Ljava/util/Map;,"Ljava/util/Map<Ljava/lang/String;*>;"
-  .locals 5 lookahead
-
-  .line 1
-
+.method private testArrays()V
   fill-array-data v0, :array_0
 
-  .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-  .catchall {:try_start_1e .. :try_end_2d} :catchall_38
-
-  .parameter "someparam"
-  .parameter "I can \"escape\" string\n properly!"
-
-  :someLabel
-
+  :array_0
   .array-data 0x1 #test
       0xebt
       0x2bt
@@ -104,12 +89,21 @@
       0x33t
   .end array-data
 
+  .array-data 0x2
+      0xebt 0x2bt
+      0x23t 0x33t
+  .end array-data
+.end method
+
+.method private testSwitches()V
   .sparse-switch
       0x1 -> :sswitch_b5
       0x2 -> :sswitch_bb
       0x4 -> :sswitch_c2
       0x8 -> :sswitch_c9
       0x10 -> :sswitch_d0
+      -0x1 -> :sswitch_1
+      0x5f4e5446 -> :sswitch_0
   .end sparse-switch
 
   :pswitch_data_34
@@ -121,18 +115,38 @@
     :pswitch_0
   .end packed-switch
 
-    .packed-switch -0x1
-        :pswitch_0
-    .end packed-switch
+  .packed-switch -0x1
+      :pswitch_0
+  .end packed-switch
+.end method
+
+.method public static final main([ILjava/lang/String;)[Ljava/lang;
+  # Test Directive Coverage
+  .param p0, "someparam"
+  .param p512, "I can \"escape\" string\n properly!"
+
+  .locals 5 # comment test
+  .registers 3
+
+  .prologue # comment test
+  .local v0, "allSettings":Ljava/util/Map;
+  .locals 5 lookahead
+
+  .line 1
+
+  .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+  .catchall {:try_start_1e .. :try_end_2d} :catchall_38
+
+  :someLabel
 .end method
 
 .method private test_10x()V
   # Test 10x Coverage
-  nop #test
+  nop # comment test
   return-void
 
   # Test 10x Correctness
-  nop invalid! #comment
+  nop invalid! # comment test
   return-void 0x0
 .end method
 
@@ -262,6 +276,7 @@
 .method private test_21c()V
   # Test 21c Coverage - op vAA, string@BBBB
   const-string v255,"this\n is \"a\" test" #test
+  const-string/jumbo v4, "not really 21c?"
 
   # Test 21c Coverage - op vAA, type@BBBB
   const-class v1,Ljava/lang/Objeçt; #test
@@ -521,8 +536,11 @@
   # Test Coverage - op {vC, vD, vE, vF, vG}, meth@BBBB
   # TODO: True correctness is beyond my knowledge. There's a disconnect between
   # number of {} parameters and method parameters
-  invoke-virtual {v0}, Lasdf;->a([I[Lasdf;[Lasdf;[Lasdf;[Lasdf;)V
-  invoke-virtual {}, Lasdf;->cool$Method()[Lsome/Class;
+  invoke-virtual { v0 }, Lasdf;->a([I[Lasdf;[Lasdf;[Lasdf;[Lasdf;)V
+  invoke-virtual { }, Lasdf;->cool$Method()[Lsome/Class;
+  invoke-virtual {p2}, [B->clone()Ljava/lang/Object;
+  invoke-static {v0}, Lo/Ȋ$CON;->ˮ͍(Ljava/lang/String;)Ljava/lang/Class;
+  invoke-virtual {v0}, [Lcom/google/b/ad;->clone()Ljava/lang/Object;
   invoke-super {v0, v0, v1}, Lasdf/some$Class;->some$METHODç(SIC)Ljava/lang/Object;
   invoke-direct {v0, v0, v0, v0, v0}, Lcom/google/something;->checkLicense(ZZ[Lsome/other$Class;ZI)[Z
   invoke-static {v0, v0, v0, v0, v0}, Lcom/google/something;->checkLicense(ZZLsome/other$Class;ZI)Z

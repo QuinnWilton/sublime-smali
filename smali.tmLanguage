@@ -291,7 +291,7 @@
 					<key>comment</key>
 					<string>Local</string>
 					<key>match</key>
-					<string>^[ \t]*(\.local)[ \t]+([vp]\d+),[ \t]+([\p{L}_\$][\w\$]*):[\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))))(?:,(")(.*?)((?&lt;!\\)"))?(?=[ \t]*(#.*)?$)</string>
+					<string>^[ \t]*(\.local)[ \t]+([vp]\d+),[ \t]+("[\p{L}_\$][\w\$]*"):[\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))))(?:,(")(.*?)((?&lt;!\\)"))?(?=[ \t]*(#.*)?$)</string>
 				</dict>
 				<dict>
 					<key>captures</key>
@@ -1125,14 +1125,19 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.tag.smali</string>
+					<string>variable.parameter.smali</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>string.quoted.double.smali</string>
+					<string>entity.name.tag.smali</string>
 				</dict>
 				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>string.quoted.double.smali</string>
+				</dict>
+				<key>5</key>
 				<dict>
 					<key>name</key>
 					<string>entity.name.tag.smali</string>
@@ -1141,7 +1146,7 @@
 			<key>comment</key>
 			<string>Parameter</string>
 			<key>match</key>
-			<string>[ \t]*(\.parameter)[ \t]*(?:(")(.*?)((?&lt;!\\)"))?(?=[ \t]*(#.*)?$)</string>
+			<string>[ \t]*(\.param)[ \t]+(p(?:0|[1-9][\d]?|[1-4][\d]{2}|50[\d]|51[0-2])\b),[ \t]+(?:(")(.*?)((?&lt;!\\)"))?(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<key>directive-method-registers_locals</key>
 		<dict>
