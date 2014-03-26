@@ -128,9 +128,9 @@
                     "patterns": [
                         { "include": "#comment-inline" },
                         {
-                            "match": "^[ \\t]*(0x(?i:0|[1-9a-f][\\da-f]{0,3}))[ \\t]+->[ \\t]+(:[A-Za-z_\\d]+)(?=[ \\t]*(#.*)?$)",
+                            "match": "^[ \\t]*(-?0x(?i:0|[1-9a-f][\\da-f]*))[ \\t]+->[ \\t]+(:[A-Za-z_\\d]+)(?=[ \\t]*(#.*)?$)",
                             "captures": {
-                                "1": { "name": "constant.language.smali" },
+                                "1": { "name": "variable.parameter.smali" },
                                 "2": { "name": "keyword.control.smali" }
                             }
                         }
@@ -141,7 +141,7 @@
                     "match": "^[ \\t]*(\\.packed-switch)[ \\t]+(-0x1|0x(?i:0|[1-9a-f][\\da-f]*))(?=[ \\t]*(#.*)?$)",
                     "captures": {
                         "1": { "name": "constant.language.smali" },
-                        "2": { "name": "constant.numeric.smali" }
+                        "2": { "name": "variable.parameter.smali" }
                     }
                 },
                 {
@@ -151,18 +151,18 @@
                 },
                 {
                     "comment": "Array data",
-                    "begin": "^[ \\t]*(\\.array-data)[ \\t]+(0x(?:1|2|4|8))(?=[ \\t]*(#.*)?$)",
+                    "begin": "^[ \\t]*(\\.array-data)[ \\t]+(1|2|4|8)(?=[ \\t]*(#.*)?$)",
                     "beginCaptures": {
                         "1": { "name": "constant.language.smali" },
-                        "2": { "name": "constant.numeric.smali" }
+                        "2": { "name": "variable.parameter.smali" }
                     },
                     "end": "^[ \\t]*(\\.end array-data)(?=[ \\t]*(#.*)?$)",
                     "endCaptures": { "1": { "name": "constant.language.smali" } },
                     "patterns": [
                         { "include": "#comment-inline" },
                         {
-                            "match": "^[ \\t]*(0x(?i:0|[1-9a-f][\\da-f]{0,1})t\\b){1,8}(?=[ \\t]*(#.*)?$)",
-                            "captures": { "1": { "name": "constant.numeric.smali" } }
+                            "match": "^[ \\t]*(-?0x(?i:0|[1-9a-f][\\da-f]?)[st]?\\b){1,8}(?=[ \\t]*(#.*)?$)",
+                            "captures": { "1": { "name": "variable.parameter.smali" } }
                         }
                     ]
                 },
@@ -239,7 +239,7 @@
     "repository": {
         "field": {
             "comment": "Field",
-            "match": "^[ \\t]*(\\.field)[ \\t]+((?:(?:bridge|varargs|declared-synchronized|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[ \\t]+)*)([\\p{L}_\\$][\\w\\$]*):[\\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;))))(?:[ \\t]+=[ \\t]+(?:(null|true|false)|(?i:((?:-0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}))|(?:(?:-0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}|8[0]{15})|0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}))[Lt]?))\\b)|(\")(.*?)((?<!\\\\)\")))?(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*(\\.field)[ \\t]+((?:(?:bridge|varargs|declared-synchronized|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[ \\t]+)*)([\\p{L}_\\$][\\w\\$]*):[\\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;))))(?:[ \\t]+=[ \\t]+(?:(null|true|false)|(?i:((?:-0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}))|(?:(?:-0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}|8[0]{15})|0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}))[Lt]?))\\b)|([\"'])(.*?)((?<!\\\\)[\"'])))?(?=[ \\t]*(#.*)?$)",
             "captures": {
                 "1": { "name": "constant.language.smali"},
                 "2": { "name": "variable.parameter.smali" },

@@ -82,16 +82,18 @@
   fill-array-data v0, :array_0
 
   :array_0
-  .array-data 0x1 #test
+  .array-data 1 #test
       0xebt
       0x2bt
       0x23t
       0x33t
   .end array-data
 
-  .array-data 0x2
-      0xebt 0x2bt
-      0x23t 0x33t
+  .array-data 2
+      0xebt
+      0x2bt
+      -0x23t
+      -0x33t
   .end array-data
 .end method
 
