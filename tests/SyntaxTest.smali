@@ -95,6 +95,12 @@
       -0x23t
       -0x33t
   .end array-data
+
+  :array_1
+  .array-data 8
+      0x3fb999999999999aL
+      0x3ff8000000000000L
+  .end array-data
 .end method
 
 .method private testSwitches()V

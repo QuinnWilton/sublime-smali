@@ -161,7 +161,7 @@
                     "patterns": [
                         { "include": "#comment-inline" },
                         {
-                            "match": "^[ \\t]*(-?0x(?i:0|[1-9a-f][\\da-f]?)[st]?\\b){1,8}(?=[ \\t]*(#.*)?$)",
+                            "match": "^[ \\t]*(?i:((?:-0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}))[st]?|(?:(?:-0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}|8[0]{15})|0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}))L))\\b)(?=[ \\t]*(#.*)?$)",
                             "captures": { "1": { "name": "variable.parameter.smali" } }
                         }
                     ]
@@ -463,7 +463,7 @@
         },
         "opcode-format-21c-string": {
             "comment": "Format: op vAA, string@BBBB",
-            "match": "^[ \\t]*(const-string)[ \\t]+([vp](?:0|[1-9][\\d]?|1[\\d]{2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(\")(.*?)((?<!\\\\)\")(?=[ \\t]*(#.*)?$)",
+            "match": "^[ \\t]*(const-string(?:/jumbo)?)[ \\t]+([vp](?:0|[1-9][\\d]?|1[\\d]{2}|2[0-4][\\d]|25[0-5])\\b),[ \\t]*(\")(.*?)((?<!\\\\)\")(?=[ \\t]*(#.*)?$)",
             "captures":{
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "variable.parameter.smali" },
