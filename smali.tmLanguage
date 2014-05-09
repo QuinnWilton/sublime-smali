@@ -1607,7 +1607,7 @@
 			<key>comment</key>
 			<string>Format: op vAA, #+BBBB0000(00000000)</string>
 			<key>match</key>
-			<string>^[ \t]*(const(?:-wide)?/high16)[ \t]+([vp](?:0|[1-9][\d]?|1[\d]{2}|2[0-4][\d]|25[0-5])\b),[ \t]*(?i:(-0x(?:0|[1-9a-f][\da-f]{0,2}|[1-7][\da-f]{3}|8000)|0x(?:0|[1-9a-f][\da-f]{0,2}|[1-7][\da-f]{3})))\b(?=[ \t]*(#.*)?$)</string>
+			<string>^[ \t]*(const(?:-wide)?/high16)[ \t]+([vp](?:0|[1-9][\d]?|1[\d]{2}|2[0-4][\d]|25[0-5])\b),[ \t]*((?i:-?0x(?:0|[1-9a-f][\da-f]{0,2}|[1-7][\da-f]{3}|8000)[0]{0,12}L?))\b(?=[ \t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-21h-relaxed</key>
 		<dict>

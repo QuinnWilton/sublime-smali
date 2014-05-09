@@ -138,7 +138,9 @@
 
   .prologue # comment test
   .local v0, "allSettings":Ljava/util/Map;
-  .locals 5 lookahead
+  .local v2, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
+
+  .locals 5 lookahead (fail)
 
   .line 1
 
@@ -327,6 +329,7 @@
   const/high16 v0,-0x8000 #test "asdf"
   const-wide/high16 v0,  0x7fff
   const-wide/high16 p255, 0x1
+  const-wide/high16 v0, 0x4242000000000000L
 
   # Test 21h Correctness
   const/high16 v0, -0x8001 #test
@@ -339,7 +342,7 @@
   # Test 21s Coverage - op vAA, #+BBBB
   const/16 v0,-0x8000 #test
   const-wide/16 v0, 0x7fff
-  const-wide/16 p255, 0x1
+  const-wide/16 p255, 0x1L
 
   # Test 21s Correctness
   const/16 v0, -0x8001 #test
