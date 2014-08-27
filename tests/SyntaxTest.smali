@@ -433,7 +433,7 @@
 .method private test_22s()V
   # Test Coverage - op vA, vB, #+CCCC
   add-int/lit16 v0,v0,-0x8000 # test
-  rsub-int/lit16 v0, v0, 0x7fff
+  rsub-int v0, v0, 0x7fff # no suffix since this is main version of opcode
   mul-int/lit16 v0, v0, 0x1
   div-int/lit16 v255, v255, -0x1
   rem-int/lit16 v0, v0, 0x0

@@ -618,7 +618,7 @@
         },
         "opcode-format-22s": {
             "comment": "Format: op vA, vB, #+CCCC",
-            "match": "^[\\s\\t]*((?:add|rsub|mul|div|rem|and|or|xor)-int\/lit16)[\\s\\t]+([vp](?:0|[1-9][\\d]?|1[\\d]{2}|2[0-4][\\d]|25[0-5])\\b),[\\s\\t]*([vp](?:0|[1-9][\\d]?|1[\\d]{2}|2[0-4][\\d]|25[0-5])\\b),[\\s\\t]*(?i:(-0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3}|8000)|0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3})))\\b(?=[\\s\\t]*(#.*)?$)",
+            "match": "^[\\s\\t]*((?:(?:add|mul|div|rem|and|or|xor)-int\/lit16)|rsub-int)[\\s\\t]+([vp](?:0|[1-9][\\d]?|1[\\d]{2}|2[0-4][\\d]|25[0-5])\\b),[\\s\\t]*([vp](?:0|[1-9][\\d]?|1[\\d]{2}|2[0-4][\\d]|25[0-5])\\b),[\\s\\t]*(?i:(-0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3}|8000)|0x(?:0|[1-9a-f][\\da-f]{0,2}|[1-7][\\da-f]{3})))\\b(?=[\\s\\t]*(#.*)?$)",
             "captures":{
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "variable.parameter.smali" },
@@ -627,7 +627,7 @@
             }
         },
         "opcode-format-22s-relaxed": {
-            "match": "^[\\s\\t]*((?:add|rsub|mul|div|rem|and|or|xor)-int\/lit16)",
+            "match": "^[\\s\\t]*((?:(?:add|mul|div|rem|and|or|xor)-int\/lit16)|rsub-int)",
             "captures": { "1": { "name": "invalid.illegal.smali" }}
         },
         "opcode-format-22t": {
