@@ -179,6 +179,7 @@
                 { "include": "#directive-method-registers_locals" },
                 { "include": "#directive-method-label" },
                 { "include": "#directive-method-parameter" },
+                { "include": "#directive-method-parameter-end" },
                 { "include": "#directives-method-relaxed" },
                 { "include": "#opcode-format-10x" },
                 { "include": "#opcode-format-10x-relaxed" },
@@ -360,7 +361,7 @@
         },
         "directive-method-parameter": {
             "comment": "Parameter",
-            "match": "[\\s\\t]*(\\.param)[\\s\\t]+(p(?:0|[1-9][\\d]?|[1-4][\\d]{2}|50[\\d]|51[0-2])\\b),[\\s\\t]+(?:(\")(.*?)((?<!\\\\)\"))?(?=[\\s\\t]*(#.*)?$)",
+            "match": "[\\s\\t]*(\\.param)[\\s\\t]+(p(?:0|[1-9][\\d]?|[1-4][\\d]{2}|50[\\d]|51[0-2])\\b)(?=[\\s\\t]*(#.*)?$)",
             "captures": {
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "variable.parameter.smali" },
@@ -368,6 +369,11 @@
                 "4": { "name": "string.quoted.double.smali" },
                 "5": { "name": "entity.name.tag.smali" }
             }
+        },
+        "directive-method-parameter-end": {
+            "comment": "Parsing this is hard to do right. This is Good Enough™.",
+            "match": "^[\\s\\t]*(\\.end param)(?=[\\s\\t]*(#.*)?$)",
+            "captures": { "1": { "name": "constant.language.smali"} }
         },
         "directive-method-label": {
             "comment": "Label",

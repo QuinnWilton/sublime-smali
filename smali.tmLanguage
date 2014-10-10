@@ -551,6 +551,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#directive-method-parameter-end</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#directives-method-relaxed</string>
 				</dict>
 				<dict>
@@ -1146,7 +1150,22 @@
 			<key>comment</key>
 			<string>Parameter</string>
 			<key>match</key>
-			<string>[\s\t]*(\.param)[\s\t]+(p(?:0|[1-9][\d]?|[1-4][\d]{2}|50[\d]|51[0-2])\b),[\s\t]+(?:(")(.*?)((?&lt;!\\)"))?(?=[\s\t]*(#.*)?$)</string>
+			<string>[\s\t]*(\.param)[\s\t]+(p(?:0|[1-9][\d]?|[1-4][\d]{2}|50[\d]|51[0-2])\b)(?=[\s\t]*(#.*)?$)</string>
+		</dict>
+		<key>directive-method-parameter-end</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>constant.language.smali</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Parsing this is hard to do right. This is Good Enough™.</string>
+			<key>match</key>
+			<string>^[\s\t]*(\.end param)(?=[\s\t]*(#.*)?$)</string>
 		</dict>
 		<key>directive-method-registers_locals</key>
 		<dict>

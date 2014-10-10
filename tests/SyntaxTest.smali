@@ -78,6 +78,13 @@
 .method public static final bridge varargs declared-synchronized synthetic $onCreate(Landroid/app/Activity;)V
 .end method
 
+.method testParameterAnnotation()V
+    .param p0
+        .annotation runtime LParameterAnnotation;
+        .end annotation
+    .end param
+.end method
+
 .method private testArrays()V
   fill-array-data v0, :array_0
 
