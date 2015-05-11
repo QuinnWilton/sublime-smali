@@ -1,7 +1,7 @@
 Smali Sublime Syntax
 ====================
 
-Context-aware syntax highlighting for Sublime Text 2.
+Context-aware syntax highlighting for Sublime Text 2 / 3.
 
 Installation
 ------------

@@ -77,7 +77,7 @@
                 },
                 {
                     "comment": "Local",
-                    "match": "^[\\s\\t]*(\\.local)[\\s\\t]+([vp]\\d+),[\\s\\t]+(\"[\\p{L}_\\$][\\w\\$]*\"):[\\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;))))(?:,(\")(.*?)((?<!\\\\)\"))?(?=[\\s\\t]*(#.*)?$)",
+                    "match": "^[\\s\\t]*(\\.local)[\\s\\t]+([vp]\\d+),[\\s\\t]+(\"[\\p{L}_\\$][\\w\\$]*\"):[\\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;))))(?:,(\")(.*?)((?<!\\\\)\"))?(?:,[\\s\\t]*(\")(.*?)((?<!\\\\)\"))?(?=[\\s\\t]*(#.*)?$)",
                     "captures": {
                         "1": { "name": "constant.language.smali" },
                         "2": { "name": "variable.parameter.smali" },
@@ -88,7 +88,10 @@
                         "7": { "name": "entity.name.tag.smali" },
                         "8": { "name": "entity.name.tag.smali" },
                         "9": { "name": "string.interpolated.smali" },
-                        "10": { "name": "entity.name.tag.smali" }
+                        "10": { "name": "entity.name.tag.smali" },
+                        "11": { "name": "entity.name.tag.smali" },
+                        "12": { "name": "string.interpolated.smali" },
+                        "13": { "name": "entity.name.tag.smali" }
                     }
                 },
                 {
@@ -361,7 +364,7 @@
         },
         "directive-method-parameter": {
             "comment": "Parameter",
-            "match": "[\\s\\t]*(\\.param)[\\s\\t]+(p(?:0|[1-9][\\d]?|[1-4][\\d]{2}|50[\\d]|51[0-2])\\b)(?=[\\s\\t]*(#.*)?$)",
+            "match": "[\\s\\t]*(\\.param)[\\s\\t]+(p(?:0|[1-9][\\d]?|[1-4][\\d]{2}|50[\\d]|51[0-2])\\b)(?:,[\\s\\t]*(\")(.*?)((?<!\\\\)\"))?(?=[\\s\\t]*(#.*)?$)",
             "captures": {
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "variable.parameter.smali" },
