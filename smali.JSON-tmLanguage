@@ -243,7 +243,7 @@
     "repository": {
         "field": {
             "comment": "Field",
-            "match": "^[\\s\\t]*(\\.field)[\\s\\t]+((?:(?:bridge|varargs|declared-synchronized|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[\\s\\t]+)*)([\\p{L}_\\$][\\w\\$]*):[\\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;))))(?:[\\s\\t]+=[\\s\\t]+(?:(null|true|false)|(?i:((?:-0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}))|(?:(?:-0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}|8[0]{15})|0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}))[Lt]?))\\b)|([\"'])(.*?)((?<!\\\\)[\"'])))?(?=[\\s\\t]*(#.*)?$)",
+            "match": "^[\\s\\t]*(\\.field)[\\s\\t]+((?:(?:bridge|varargs|declared-synchronized|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[\\s\\t]+)*)([\\p{L}_\\$][\\w\\$]*):[\\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;))))(?:[\\s\\t]+=[\\s\\t]+(?:(null|true|false)|(?i:(\\d+(?:\\.\\d+)?[fld]?))|(?i:((?:-0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\\da-f]{0,6}|[1-7][\\da-f]{7}))|(?:(?:-0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}|8[0]{15})|0x(?:0|[1-9a-f][\\da-f]{0,14}|[1-7][\\da-f]{15}))[Lt]?))\\b)|([\"'])(.*?)((?<!\\\\)[\"'])))?(?=[\\s\\t]*(#.*)?$)",
             "captures": {
                 "1": { "name": "constant.language.smali"},
                 "2": { "name": "variable.parameter.smali" },
@@ -254,9 +254,10 @@
                 "7": { "name": "entity.name.tag.smali" },
                 "8": { "name": "constant.language.smali" },
                 "9": { "name": "constant.numeric.smali" },
-                "10": { "name": "entity.name.tag.smali" },
-                "11": { "name": "string.quoted.double.smali" },
-                "12": { "name": "entity.name.tag.smali" }
+                "10": { "name": "constant.numeric.smali" },
+                "11": { "name": "entity.name.tag.smali" },
+                "12": { "name": "string.quoted.double.smali" },
+                "13": { "name": "entity.name.tag.smali" }
             }
         },
         "field-end": {

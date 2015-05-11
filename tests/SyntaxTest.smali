@@ -21,6 +21,10 @@
 .field public static final S:[[B = null
 .field public static final enum NO_FILL:Lcom/google/ads/AdRequest$ErrorCode;
 .field public static final i:C = 'i'
+.field private static final LITERAL_NUMBER1:F = 50.0f
+.field private static final LITERAL_NUMBER2:D = 50.0d
+.field private static final LITERAL_NUMBER3:J = 50.0L
+.field private static final LITERAL_NUMBER4:I = 42
 
 .annotation build Landroid/annotation/SuppressLint;
 .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
