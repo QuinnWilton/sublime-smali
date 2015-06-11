@@ -39,6 +39,30 @@
   name = "drawable"
 .end annotation
 
+.annotation build La/a/b;
+    a = 0xe
+.end annotation
+
+.annotation system Ldalvik/annotation/AnnotationDefault;
+    value = .subannotation Lorg/acra/annotation/ReportsCrashes;
+        additionalSharedPreferences = {}
+        applicationLogFile = ""
+        applicationLogFileLines = 0x64
+        deleteUnapprovedReportsOnApplicationStart = true
+        disableSSLCertValidation = false
+        dropboxCollectionMinutes = 0x5
+        googleFormUrlFormat = "https://docs.google.com/spreadsheet/formResponse?formkey=%s&ifq"
+        httpMethod = .enum Lorg/acra/sender/HttpSender$Method;->POST:Lorg/acra/sender/HttpSender$Method;
+        logcatArguments = {
+            "-t",
+            "100",
+            "-v",
+            "time"
+        }
+        reportType = .enum Lorg/acra/sender/HttpSender$Type;->FORM:Lorg/acra/sender/HttpSender$Type;
+    .end subannotation
+.end annotation
+
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/mobclix/android/sdk/Mobclix$BitmapHandler;,
@@ -413,7 +437,8 @@
 
 .method private test_22c()V
   # Test Coverage - op vA, vB, type@CCCC
-  instance-of v0,v0,Ljava/lang/Object;
+  instance-of v0,v0, Ljava/lang/Object;
+  instance-of v3, v3, [B
   new-array v0, v0, [Ljava/lang/Hello;
   new-array v0, v0, [[I
 

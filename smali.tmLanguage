@@ -1880,14 +1880,19 @@
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.tag.smali</string>
+					<string>constant.numeric.smali</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>constant.numeric.smali</string>
+					<string>entity.name.tag.smali</string>
 				</dict>
 				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.smali</string>
+				</dict>
+				<key>7</key>
 				<dict>
 					<key>name</key>
 					<string>entity.name.tag.smali</string>
@@ -1896,7 +1901,7 @@
 			<key>comment</key>
 			<string>Format: op vA, vB, type@CCCC</string>
 			<key>match</key>
-			<string>^[\s\t]*(instance-of)[\s\t]+([vp](?:0|[1-9]|1[0-5])\b),[\s\t]*([vp](?:0|[1-9]|1[0-5])\b),[\s\t]*(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)(?=[\s\t]*(#.*)?$)</string>
+			<string>^[\s\t]*(instance-of)[\s\t]+([vp](?:0|[1-9]|1[0-5])\b),[\s\t]*([vp](?:0|[1-9]|1[0-5])\b),[\s\t]*[\[]*(?:(Z|B|S|C|I|J|F|D)|(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))(?=[\s\t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-22c-type_array</key>
 		<dict>

@@ -582,14 +582,15 @@
         },
         "opcode-format-22c-type": {
             "comment": "Format: op vA, vB, type@CCCC",
-            "match": "^[\\s\\t]*(instance-of)[\\s\\t]+([vp](?:0|[1-9]|1[0-5])\\b),[\\s\\t]*([vp](?:0|[1-9]|1[0-5])\\b),[\\s\\t]*(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;)(?=[\\s\\t]*(#.*)?$)",
+            "match": "^[\\s\\t]*(instance-of)[\\s\\t]+([vp](?:0|[1-9]|1[0-5])\\b),[\\s\\t]*([vp](?:0|[1-9]|1[0-5])\\b),[\\s\\t]*[\\[]*(?:(Z|B|S|C|I|J|F|D)|(L)([\\p{L}_\\$][\\p{L}\\d_\\$]*(?:\/[\\p{L}_\\$][\\p{L}\\d_\\$]*)*)(;))(?=[\\s\\t]*(#.*)?$)",
             "captures":{
                 "1": { "name": "support.function.smali" },
                 "2": { "name": "variable.parameter.smali" },
                 "3": { "name": "variable.parameter.smali" },
-                "4": { "name": "entity.name.tag.smali" },
-                "5": { "name": "constant.numeric.smali" },
-                "6": { "name": "entity.name.tag.smali" }
+                "4": { "name": "constant.numeric.smali" },
+                "5": { "name": "entity.name.tag.smali" },
+                "6": { "name": "constant.numeric.smali" },
+                "7": { "name": "entity.name.tag.smali" }
             }
         },
         "opcode-format-22c-type_array": {
