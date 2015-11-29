@@ -5,16 +5,16 @@
 
 .class interface abstract Landroid/support/v13/app/FragmentCompat$FragmentCompatImpl;
 .class public final enum Lcom/google/ads/AdRequest$ErrorCode;
-.class public final LTestClass;
+.class public final LTestClass; # commenty;
 .class public interface abstract annotation Landroid/annotation/TargetApi;
 .class public Lo/AUX$ঽ্;
 
 .class Lcom/flashp/data/$55$5;
 .super Ljava/lang/Object;
-.source "DoesNotExistBecauseHardcore.java"
+.source "DoesNotExistBecauseHardcore.java" # comment
 
 # interfaces
-.implements Ljava/io/Serializable;
+.implements Ljava/io/Serializable; #comment;
 
 # static fields
 .field private static final serialVersionUID:J = 0x123432323523553L
@@ -83,7 +83,7 @@
     .end annotation
 .end field
 
-.annotation runtime Ljava/lang/annotation/Target;
+.annotation runtime Ljava/lang/annotation/Target; #comment
     value = {
         .enum Ljava/lang/annotation/ElementType;->TYPE:Ljava/lang/annotation/ElementType;,
         .enum Ljava/lang/annotation/ElementType;->METHOD:Ljava/lang/annotation/ElementType;,
