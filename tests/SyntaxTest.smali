@@ -584,15 +584,14 @@
   # TODO: True correctness is beyond my knowledge. There's a disconnect between
   # number of {} parameters and method parameters
   invoke-virtual { v0 }, Lasdf;->a([I[Lasdf;[Lasdf;[Lasdf;[Lasdf;)V
-  invoke-virtual { }, Lasdf;->cool$Method()[Lsome/Class;
-  invoke-virtual {p2}, [B->clone()Ljava/lang/Object;
+  invoke-static { }, Lasdf;->cool$Method()[Lsome/Class;
   invoke-static {v0}, Lo/Ȋ$CON;->ˮ͍(Ljava/lang/String;)Ljava/lang/Class;
-  invoke-virtual {v0}, [Lcom/google/b/ad;->clone()Ljava/lang/Object;
+  invoke-virtual {v0}, [Lcom/google/b/ad;->clone()Ljava/lang/Object; # from an enum's values() method
   invoke-super {v0, v0, v1}, Lasdf/some$Class;->some$METHODç(SIC)Ljava/lang/Object;
-  invoke-direct {v0, v0, v0, v0, v0}, Lcom/google/something;->checkLicense(ZZ[Lsome/other$Class;ZI)[Z
+  invoke-direct {v0, v0, v0, v0, v0},   Lcom/google/something;->checkLicense(ZZ[Lsome/other$Class;ZI)[Z
   invoke-static {v0, v0, v0, v0, v0}, Lcom/google/something;->checkLicense(ZZLsome/other$Class;ZI)Z
   invoke-static {}, Lcom/flashp/http/$S555;->UOGCO()Lcom/flashp/http/$S555;
-  invoke-interface {v0, v0, v0, v0, v0}, Lcom/google/something;->checkLicense(ZZLsome/other$Class;ZI)Z
+  invoke-interface {v0, v0, v0, v0, v0},Lcom/google/something;->checkLicense(ZZLsome/other$Class;ZI)Z
 
   # Test Correctness
   filled-new-array {v0, v0}, V
@@ -604,6 +603,7 @@
   invoke-virtual {v0, v0, v0, v0, v0, v0}, Lasdf;->a()V
   invoke-virtual {}, Lasdf;->a()V;
   invoke-virtual {}, Lasdf;->a()V lookahead!
+  invoke-virtual {p2}, [B->clone()Ljava/lang/Object;
 .end method
 
 .method private test_3rc()V
@@ -614,9 +614,9 @@
   # Test Coverage - op {vCCCC .. vNNNN}, meth@BBBB
   invoke-virtual/range {v0 .. v0}, Lsome/Obj;->asdf()V
   invoke-super/range {v0 .. v0}, Lsome/Obj;->someMethod()[LsomeReturn/Class;
-  invoke-direct/range {v0 .. v0}, Lsome/Obj;->someMethod(II[Lsome;I[III[III[IIIIS)V
-  invoke-static/range {v0 .. v0}, Lsome/Obj;->someMethod(Ljava/lang/String;)[I
-  invoke-interface/range {v0 .. v0}, Lsome/Obj/Class$0;->some$access()V
+  invoke-direct/range {v0 .. v0},   Lsome/Obj;->someMethod(II[Lsome;I[III[III[IIIIS)V
+  invoke-static/range { v0 .. v0 }, [Lsome/Obj;->someMethod(Ljava/lang/String;)[I
+  invoke-interface/range {v0 .. v0},Lsome/Obj/Class$0;->some$access()V
 
   # Test Correctness
   invoke-virtual/range {v0 .. v0}, Lsome/Obj;->asdf()[V
