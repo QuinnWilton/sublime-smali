@@ -148,7 +148,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>^[\s\t]*(\.method)[\s\t]*((?:(?:bridge|varargs|declared-synchronized|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[\s\t]+)*)(constructor )?(&lt;init&gt;|&lt;clinit&gt;|(?:[\$\p{L}_][\p{L}\d_\$]*))\(((?:[\[]*(?:Z|B|S|C|I|J|F|D|L(?:[\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*);))*)\)(?:(V)|[\[]*(Z|B|S|C|I|J|F|D)|[\[]*(?:(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)))(?=[\s\t]*(#.*)?$)</string>
+			<string>^[\s\t]*(\.method)[\s\t]*((?:(?:bridge|varargs|declared-synchronized|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[\s\t]+)*)(constructor )?(&lt;init&gt;|&lt;clinit&gt;|(?:[\$\p{L}_\-][\p{L}\d_\$]*))\(((?:[\[]*(?:Z|B|S|C|I|J|F|D|L(?:[\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*);))*)\)(?:(V)|[\[]*(Z|B|S|C|I|J|F|D)|[\[]*(?:(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)))(?=[\s\t]*(#.*)?$)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -1292,7 +1292,7 @@
 			<key>comment</key>
 			<string>Field</string>
 			<key>match</key>
-			<string>^[\s\t]*(\.field)[\s\t]+((?:(?:bridge|varargs|declared-synchronized|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[\s\t]+)*)([\p{L}_\$][\w\$]*):[\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))))(?:[\s\t]+=[\s\t]+(?:(null|true|false)|(?i:(\d+(?:\.\d+)?[fld]?))|(?i:((?:-0x(?:0|[1-9a-f][\da-f]{0,6}|[1-7][\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\da-f]{0,6}|[1-7][\da-f]{7}))|(?:(?:-0x(?:0|[1-9a-f][\da-f]{0,14}|[1-7][\da-f]{15}|8[0]{15})|0x(?:0|[1-9a-f][\da-f]{0,14}|[1-7][\da-f]{15}))[Lt]?))\b)|(["'])(.*?)((?&lt;!\\)["'])))?(?=[\s\t]*(#.*)?$)</string>
+			<string>^[\s\t]*(\.field)[\s\t]+((?:(?:bridge|varargs|declared-synchronized|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[\s\t]+)*)([\p{L}_\$\-][\w\$]*):[\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))))(?:[\s\t]+=[\s\t]+(?:(null|true|false)|(?i:(\d+(?:\.\d+)?[fld]?))|(?i:((?:-0x(?:0|[1-9a-f][\da-f]{0,6}|[1-7][\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\da-f]{0,6}|[1-7][\da-f]{7}))|(?:(?:-0x(?:0|[1-9a-f][\da-f]{0,14}|[1-7][\da-f]{15}|8[0]{15})|0x(?:0|[1-9a-f][\da-f]{0,14}|[1-7][\da-f]{15}))[Lt]?))\b)|(["'])(.*?)((?&lt;!\\)["'])))?(?=[\s\t]*(#.*)?$)</string>
 		</dict>
 		<key>field-end</key>
 		<dict>

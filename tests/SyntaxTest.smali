@@ -25,6 +25,7 @@
 .field private static final LITERAL_NUMBER2:D = 50.0d
 .field private static final LITERAL_NUMBER3:J = 50.0L
 .field private static final LITERAL_NUMBER4:I = 42
+.field private synthetic -enum_field:I = 42
 
 .annotation build Landroid/annotation/SuppressLint;
 .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
@@ -104,6 +105,9 @@
 .end method
 
 .method public static final bridge varargs declared-synchronized synthetic $onCreate(Landroid/app/Activity;)V
+.end method
+
+.method static synthetic -get0(Llibcore/util/ZoneInfo;)[B
 .end method
 
 .method testParameterAnnotation()V
