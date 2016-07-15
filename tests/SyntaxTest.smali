@@ -16,16 +16,31 @@
 # interfaces
 .implements Ljava/io/Serializable; #comment;
 
-# static fields
-.field private static final serialVersionUID:J = 0x123432323523553L
-.field public static final S:[[B = null
+# fields
+.field private synthetic volatile myInt:I
+.field public static myIntLiteral:I = 0x42
+.field public static myLong:J
+.field public static myLongLiteral:J = 0xFFFFFFFFFFFFFFFL
+.field public static myString:[Ljava/lang/String;
+.field public static myStringLiteral:Ljava/lang/String; = "life, what's life?"
+.field public static myBoolean:[[Z = false
+.field public static myBoolean2:[[Z
+.field public static myBooleanLiteral:Z = true
+.field public static myByte:B
+.field public static myByteLiteral:B = 0xft
+.field public static myChar:C
+.field public static myCharLiteral:C = '\0'
+.field public static myShort:S
+.field public static myShortLiteral:S = 0x100S
+.field public static myDouble:D
+.field public static myDoubleLiteral:D = 0xFFFFfffFFffffFfd
+.field public static myFloat:F
+.field public static myFloatLiteral:F = 1.1f
+
+.field private static final serialVersionUID:J = 0x123432323523553l
 .field public static final enum NO_FILL:Lcom/google/ads/AdRequest$ErrorCode;
-.field public static final i:C = 'i'
-.field private static final LITERAL_NUMBER1:F = 50.0f
-.field private static final LITERAL_NUMBER2:D = 50.0d
-.field private static final LITERAL_NUMBER3:J = 50.0L
-.field private static final LITERAL_NUMBER4:I = 42
 .field private synthetic -enum_field:I = 42
+
 
 .annotation build Landroid/annotation/SuppressLint;
 .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
