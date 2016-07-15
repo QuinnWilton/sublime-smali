@@ -186,6 +186,7 @@
   # Test Directive Coverage
   .param p0, "someparam"
   .param p512, "I can \"escape\" string\n properly!"
+  .parameter p0, "smali 2.0 param"
 
   .locals 5 # comment test
   .registers 3
@@ -194,6 +195,7 @@
   .local v0, "allSettings":Ljava/util/Map;
   .local v2, "entry":Ljava/util/Map$Entry;, "Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;"
 
+  # Invalid
   .locals 5 lookahead (fail)
 
   .line 1

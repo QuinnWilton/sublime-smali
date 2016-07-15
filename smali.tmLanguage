@@ -1169,7 +1169,7 @@
 			<key>comment</key>
 			<string>Parameter</string>
 			<key>match</key>
-			<string>[\s\t]*(\.param)[\s\t]+(p(?:0|[1-9][\d]?|[1-4][\d]{2}|50[\d]|51[0-2])\b)(?:,[\s\t]*(")(.*?)((?&lt;!\\)"))?(?=[\s\t]*(#.*)?$)</string>
+			<string>[\s\t]*(\.param(?:eter)?)[\s\t]+(p(?:0|[1-9][\d]?|[1-4][\d]{2}|50[\d]|51[0-2])\b)(?:,[\s\t]*(")(.*?)((?&lt;!\\)"))?(?=[\s\t]*(#.*)?$)</string>
 		</dict>
 		<key>directive-method-parameter-end</key>
 		<dict>
