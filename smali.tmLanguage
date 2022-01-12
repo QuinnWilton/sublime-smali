@@ -86,7 +86,7 @@
 			<key>comment</key>
 			<string>Class name</string>
 			<key>match</key>
-			<string>^[\s\t]*(\.class)[\s\t]*((?:(?:interface|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum|annotation)[\s\t]+)*)[\s\t]*(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)(?=[\s\t]*(#.*)?$)</string>
+			<string>^[\s\t]*(\.class)[\s\t]*((?:(?:interface|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum|annotation)[\s\t]+)*)[\s\t]*(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;)(?=[\s\t]*(#.*)?$)</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -115,7 +115,7 @@
 			<key>comment</key>
 			<string>Super / implements class name</string>
 			<key>match</key>
-			<string>^[\s\t]*(\.(?:super|implements))[\s\t]+(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)(?=[\s\t]*(#.*)?$)</string>
+			<string>^[\s\t]*(\.(?:super|implements))[\s\t]+(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;)(?=[\s\t]*(#.*)?$)</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -148,7 +148,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>^[\s\t]*(\.method)[\s\t]*((?:(?:bridge|varargs|declared-synchronized|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[\s\t]+)*)(constructor )?(&lt;init&gt;|&lt;clinit&gt;|(?:[\$\p{L}_\-][\p{L}\d_\$]*))\(((?:[\[]*(?:Z|B|S|C|I|J|F|D|L(?:[\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*);))*)\)(?:(V)|[\[]*(Z|B|S|C|I|J|F|D)|[\[]*(?:(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)))(?=[\s\t]*(#.*)?$)</string>
+			<string>^[\s\t]*(\.method)[\s\t]*((?:(?:bridge|varargs|declared-synchronized|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[\s\t]+)*)(constructor )?(&lt;init&gt;|&lt;clinit&gt;|(?:[\$\p{L}_\-][\p{L}\d_\$]*))\(((?:[\[]*(?:Z|B|S|C|I|J|F|D|L(?:[\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*);))*)\)(?:(V)|[\[]*(Z|B|S|C|I|J|F|D)|[\[]*(?:(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;)))(?=[\s\t]*(#.*)?$)</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -310,7 +310,7 @@
 					<key>comment</key>
 					<string>Local</string>
 					<key>match</key>
-					<string>^[\s\t]*(\.local)[\s\t]+([vp]\d+),[\s\t]+("[\p{L}_\$][\w\$]*"):[\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))))(?:,(")(.*?)((?&lt;!\\)"))?(?:,[\s\t]*(")(.*?)((?&lt;!\\)"))?(?=[\s\t]*(#.*)?$)</string>
+					<string>^[\s\t]*(\.local)[\s\t]+([vp]\d+),[\s\t]+("[\p{L}\p{N}_\$][\w\$]*"):[\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;))))(?:,(")(.*?)((?&lt;!\\)"))?(?:,[\s\t]*(")(.*?)((?&lt;!\\)"))?(?=[\s\t]*(#.*)?$)</string>
 				</dict>
 				<dict>
 					<key>captures</key>
@@ -354,7 +354,7 @@
 					<key>comment</key>
 					<string>Catch exceptions</string>
 					<key>match</key>
-					<string>^[\s\t]*(\.catch)[\s\t]+(?:(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))[\s\t]+{(:[A-Za-z_\d]+)[\s\t]+\.\.[\s\t]+(:[A-Za-z_\d]+)}[\s\t]+(:[A-Za-z_\d]+)(?=[\s\t]*(#.*)?$)</string>
+					<string>^[\s\t]*(\.catch)[\s\t]+(?:(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;))[\s\t]+{(:[A-Za-z_\d]+)[\s\t]+\.\.[\s\t]+(:[A-Za-z_\d]+)}[\s\t]+(:[A-Za-z_\d]+)(?=[\s\t]*(#.*)?$)</string>
 				</dict>
 				<dict>
 					<key>captures</key>
@@ -818,7 +818,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^[\s\t]*(\.annotation)[\s\t]+(build|runtime|system)[\s\t]+(?:(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))(?=[\s\t]*(#.*)?$)</string>
+			<string>^[\s\t]*(\.annotation)[\s\t]+(build|runtime|system)[\s\t]+(?:(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;))(?=[\s\t]*(#.*)?$)</string>
 		</dict>
 		<key>annotation-access</key>
 		<dict>
@@ -1008,7 +1008,7 @@
 			<key>comment</key>
 			<string>This is another hack because sublime can't handle multi-line regex, particulaly for 'end'.</string>
 			<key>match</key>
-			<string>^[\s\t]*(value)[\s\t]*=[\s\t]*(?:(")(.*?)((?&lt;!\\)")?|(?:\.(enum|subannotation)[\s\t]+)?(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))(?:-&gt;(?:([\p{L}_\$][\w\$]*):[\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))))|(&lt;init&gt;|&lt;clinit&gt;|(?:[\$\p{L}_][\p{L}\d_\$]*))\(((?:[\[]*(?:Z|B|S|C|I|J|F|D|L(?:[\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*);))*)\)(?:(V)|[\[]*(Z|B|S|C|I|J|F|D)|[\[]*(?:(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)))))?(?=[\s\t]*(#.*)?$)</string>
+			<string>^[\s\t]*(value)[\s\t]*=[\s\t]*(?:(")(.*?)((?&lt;!\\)")?|(?:\.(enum|subannotation)[\s\t]+)?(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;))(?:-&gt;(?:([\p{L}\p{N}_\$][\w\$]*):[\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;))))|(&lt;init&gt;|&lt;clinit&gt;|(?:[\$\p{L}_][\p{L}\d_\$]*))\(((?:[\[]*(?:Z|B|S|C|I|J|F|D|L(?:[\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*);))*)\)(?:(V)|[\[]*(Z|B|S|C|I|J|F|D)|[\[]*(?:(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;)))))?(?=[\s\t]*(#.*)?$)</string>
 		</dict>
 		<key>annotation-value_list</key>
 		<dict>
@@ -1067,7 +1067,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?:(")(.*?)((?&lt;!\\)")?|(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))(?:,)?(?=[\s\t]*(#.*)?$)</string>
+					<string>(?:(")(.*?)((?&lt;!\\)")?|(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;))(?:,)?(?=[\s\t]*(#.*)?$)</string>
 				</dict>
 			</array>
 		</dict>
@@ -1292,7 +1292,7 @@
 			<key>comment</key>
 			<string>Field</string>
 			<key>match</key>
-			<string>^[\s\t]*(\.field)[\s\t]+((?:(?:bridge|varargs|declared-synchronized|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[\s\t]+)*)([\p{L}_\$\-][\w\$]*):[\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))))(?:[\s\t]+=[\s\t]+(?:(null|true|false)|(?i:(\d+(?:\.\d+)?[fldst]?))|(?i:((?:-0x(?:0|[1-9a-f][\da-f]{0,6}|[1-7][\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\da-f]{0,6}|[1-7][\da-f]{7}))|(?:(?:-0x(?:0|[1-9a-f][\da-f]{0,14}|[1-7][\da-f]{15}|8[0]{15})|0x(?:0|[1-9a-f][\da-f]{0,14}|[1-7][\da-f]{15}))[fldst]?))\b)|(["'])(.*?)((?&lt;!\\)["'])))?(?=[\s\t]*(#.*)?$)</string>
+			<string>^[\s\t]*(\.field)[\s\t]+((?:(?:bridge|varargs|declared-synchronized|public|protected|private|abstract|static|final|synchronized|transient|volatile|native|strictfp|synthetic|enum)[\s\t]+)*)([\p{L}_\$\-][\w\$]*):[\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;))))(?:[\s\t]+=[\s\t]+(?:(null|true|false)|(?i:(\d+(?:\.\d+)?[fldst]?))|(?i:((?:-0x(?:0|[1-9a-f][\da-f]{0,6}|[1-7][\da-f]{7}|8[0]{7})|0x(?:0|[1-9a-f][\da-f]{0,6}|[1-7][\da-f]{7}))|(?:(?:-0x(?:0|[1-9a-f][\da-f]{0,14}|[1-7][\da-f]{15}|8[0]{15})|0x(?:0|[1-9a-f][\da-f]{0,14}|[1-7][\da-f]{15}))[fldst]?))\b)|(["'])(.*?)((?&lt;!\\)["'])))?(?=[\s\t]*(#.*)?$)</string>
 		</dict>
 		<key>field-end</key>
 		<dict>
@@ -1537,7 +1537,7 @@
 			<key>comment</key>
 			<string>Format: op vAA, field@BBBB</string>
 			<key>match</key>
-			<string>^[\s\t]*((?:sget|sput)(?:-wide|-object|-boolean|-byte|-char|-short)?)[\s\t]+([vp](?:0|[1-9][\d]?|1[\d]{2}|2[0-4][\d]|25[0-5])\b),[\s\t]*(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)-&gt;([\p{L}_\$][\w\$]*):[\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))))(?=[\s\t]*(#.*)?$)</string>
+			<string>^[\s\t]*((?:sget|sput)(?:-wide|-object|-boolean|-byte|-char|-short)?)[\s\t]+([vp](?:0|[1-9][\d]?|1[\d]{2}|2[0-4][\d]|25[0-5])\b),[\s\t]*(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;)-&gt;([\p{L}\p{N}_\$][\w\$]*):[\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;))))(?=[\s\t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-21c-relaxed</key>
 		<dict>
@@ -1625,7 +1625,7 @@
 			<key>comment</key>
 			<string>Format: op vAA, type@BBBB</string>
 			<key>match</key>
-			<string>^[\s\t]*(const-class|check-cast|new-instance)[\s\t]+([vp](?:0|[1-9][\d]?|1[\d]{2}|2[0-4][\d]|25[0-5])\b),[\s\t]*[\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))))(?=[\s\t]*(#.*)?$)</string>
+			<string>^[\s\t]*(const-class|check-cast|new-instance)[\s\t]+([vp](?:0|[1-9][\d]?|1[\d]{2}|2[0-4][\d]|25[0-5])\b),[\s\t]*[\[]*(?:(?:(Z|B|S|C|I|J|F|D)|(?:(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;))))(?=[\s\t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-21h</key>
 		<dict>
@@ -1847,7 +1847,7 @@
 			<key>comment</key>
 			<string>Format: op vA, vB, field@CCCC</string>
 			<key>match</key>
-			<string>^[\s\t]*((?:iget|iput)(?:-wide|-object|-boolean|-byte|-char|-short)?)[\s\t]+([vp](?:0|[1-9]|1[0-5])\b),[\s\t]*([vp](?:0|[1-9]|1[0-5])\b),[\s\t]*(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)-&gt;([\p{L}_\$][\w\$]*):[\[]*(?:(Z|B|S|C|I|J|F|D|(?:(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))))(?=[\s\t]*(#.*)?$)</string>
+			<string>^[\s\t]*((?:iget|iput)(?:-wide|-object|-boolean|-byte|-char|-short)?)[\s\t]+([vp](?:0|[1-9]|1[0-5])\b),[\s\t]*([vp](?:0|[1-9]|1[0-5])\b),[\s\t]*(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;)-&gt;([\p{L}\p{N}_\$][\w\$]*):[\[]*(?:(Z|B|S|C|I|J|F|D|(?:(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;))))(?=[\s\t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-22c-relaxed</key>
 		<dict>
@@ -1905,7 +1905,7 @@
 			<key>comment</key>
 			<string>Format: op vA, vB, type@CCCC</string>
 			<key>match</key>
-			<string>^[\s\t]*(instance-of)[\s\t]+([vp](?:0|[1-9]|1[0-5])\b),[\s\t]*([vp](?:0|[1-9]|1[0-5])\b),[\s\t]*[\[]*(?:(Z|B|S|C|I|J|F|D)|(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))(?=[\s\t]*(#.*)?$)</string>
+			<string>^[\s\t]*(instance-of)[\s\t]+([vp](?:0|[1-9]|1[0-5])\b),[\s\t]*([vp](?:0|[1-9]|1[0-5])\b),[\s\t]*[\[]*(?:(Z|B|S|C|I|J|F|D)|(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;))(?=[\s\t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-22c-type_array</key>
 		<dict>
@@ -1950,7 +1950,7 @@
 			<key>comment</key>
 			<string>Format: op vA, vB, [type@CCCC</string>
 			<key>match</key>
-			<string>^[\s\t]*(new-array)[\s\t]+([vp](?:0|[1-9]|1[0-5])\b),[\s\t]*([vp](?:0|[1-9]|1[0-5])\b),[\s\t]*[\[]+(?:(Z|B|S|C|I|J|F|D)|(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))(?=[\s\t]*(#.*)?$)</string>
+			<string>^[\s\t]*(new-array)[\s\t]+([vp](?:0|[1-9]|1[0-5])\b),[\s\t]*([vp](?:0|[1-9]|1[0-5])\b),[\s\t]*[\[]+(?:(Z|B|S|C|I|J|F|D)|(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;))(?=[\s\t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-22s</key>
 		<dict>
@@ -2416,7 +2416,7 @@
 			<key>comment</key>
 			<string>Format: op {vC, vD, vE, vF, vG}, meth@BBBB</string>
 			<key>match</key>
-			<string>^[\s\t]*(invoke-(?:virtual|super|direct|static|interface)) {[\s\t]*([vp](?:0|[1-9]|1[0-5])\b)?(?:,[\s\t]*([vp](?:0|[1-9]|1[0-5])\b))?(?:,[\s\t]*([vp](?:0|[1-9]|1[0-5])\b))?(?:,[\s\t]*([vp](?:0|[1-9]|1[0-5])\b))?(?:,[\s\t]*([vp](?:0|[1-9]|1[0-5])\b))?[\s\t]*},[\s\t]*[\[]*(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)-&gt;(&lt;init&gt;|&lt;clinit&gt;|(?:[\$\p{L}_][\p{L}\d_\$]*))\((?:[\[]*(Z|B|S|C|I|J|F|D)|(?:[\[]*(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)))?(?:[\[]*(Z|B|S|C|I|J|F|D)|(?:[\[]*(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)))?(?:[\[]*(Z|B|S|C|I|J|F|D)|(?:[\[]*(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)))?(?:[\[]*(Z|B|S|C|I|J|F|D)|(?:[\[]*(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)))?(?:[\[]*(Z|B|S|C|I|J|F|D)|(?:[\[]*(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)))?\)(?:(?:(V)|[\[]*(Z|B|S|C|I|J|F|D))|(?:[\[]*(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)))(?=[\s\t]*(#.*)?$)</string>
+			<string>^[\s\t]*(invoke-(?:virtual|super|direct|static|interface)) {[\s\t]*([vp](?:0|[1-9]|1[0-5])\b)?(?:,[\s\t]*([vp](?:0|[1-9]|1[0-5])\b))?(?:,[\s\t]*([vp](?:0|[1-9]|1[0-5])\b))?(?:,[\s\t]*([vp](?:0|[1-9]|1[0-5])\b))?(?:,[\s\t]*([vp](?:0|[1-9]|1[0-5])\b))?[\s\t]*},[\s\t]*[\[]*(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;)-&gt;(&lt;init&gt;|&lt;clinit&gt;|(?:[\$\p{L}_][\p{L}\d_\$]*))\((?:[\[]*(Z|B|S|C|I|J|F|D)|(?:[\[]*(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;)))?(?:[\[]*(Z|B|S|C|I|J|F|D)|(?:[\[]*(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;)))?(?:[\[]*(Z|B|S|C|I|J|F|D)|(?:[\[]*(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;)))?(?:[\[]*(Z|B|S|C|I|J|F|D)|(?:[\[]*(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;)))?(?:[\[]*(Z|B|S|C|I|J|F|D)|(?:[\[]*(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;)))?\)(?:(?:(V)|[\[]*(Z|B|S|C|I|J|F|D))|(?:[\[]*(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;)))(?=[\s\t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-35c-relaxed</key>
 		<dict>
@@ -2494,7 +2494,7 @@
 			<key>comment</key>
 			<string>Format: op {vC, vD, vE, vF, vG}, type@BBBB</string>
 			<key>match</key>
-			<string>^[\s\t]*(filled-new-array) {([vp](?:0|[1-9]|1[0-5])\b),[\s\t]*([vp](?:0|[1-9]|1[0-5])\b)(?:,[\s\t]*([vp](?:0|[1-9]|1[0-5])\b))?(?:,[\s\t]*([vp](?:0|[1-9]|1[0-5])\b))?(?:,[\s\t]*([vp](?:0|[1-9]|1[0-5])\b))?},[\s\t]*[\[]+(?:(Z|B|S|C|I|J|F|D)|(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))(?=[\s\t]*(#.*)?$)</string>
+			<string>^[\s\t]*(filled-new-array) {([vp](?:0|[1-9]|1[0-5])\b),[\s\t]*([vp](?:0|[1-9]|1[0-5])\b)(?:,[\s\t]*([vp](?:0|[1-9]|1[0-5])\b))?(?:,[\s\t]*([vp](?:0|[1-9]|1[0-5])\b))?(?:,[\s\t]*([vp](?:0|[1-9]|1[0-5])\b))?},[\s\t]*[\[]+(?:(Z|B|S|C|I|J|F|D)|(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;))(?=[\s\t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-3rc-meth</key>
 		<dict>
@@ -2579,7 +2579,7 @@
 			<key>comment</key>
 			<string>Format: op {vCCCC .. vNNNN}, meth@BBBB</string>
 			<key>match</key>
-			<string>^[\s\t]*(invoke-(?:virtual|super|direct|static|interface)/range) {[\s\t]*([vp](?:0|[1-9][\d]{0,3}|[1-5][\d]{4}|6[0-4][\d]{3}|65[0-4][\d]{2}|655[0-2][\d]|6553[0-5])\b) \.\. ([vp](?:0|[1-9][\d]{0,3}|[1-5][\d]{4}|6[0-4][\d]{3}|65[0-4][\d]{2}|655[0-2][\d]|6553[0-5])\b)[\s\t]*},[\s\t]*[\[]*(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)-&gt;(&lt;init&gt;|&lt;clinit&gt;|(?:[\$\p{L}_][\p{L}\d_\$]*))\(((?:[\[]*(?:Z|B|S|C|I|J|F|D|L(?:[\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*);))*)\)(?:(V)|[\[]*(Z|B|S|C|I|J|F|D)|[\[]*(?:(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;)))(?=[\s\t]*(#.*)?$)</string>
+			<string>^[\s\t]*(invoke-(?:virtual|super|direct|static|interface)/range) {[\s\t]*([vp](?:0|[1-9][\d]{0,3}|[1-5][\d]{4}|6[0-4][\d]{3}|65[0-4][\d]{2}|655[0-2][\d]|6553[0-5])\b) \.\. ([vp](?:0|[1-9][\d]{0,3}|[1-5][\d]{4}|6[0-4][\d]{3}|65[0-4][\d]{2}|655[0-2][\d]|6553[0-5])\b)[\s\t]*},[\s\t]*[\[]*(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;)-&gt;(&lt;init&gt;|&lt;clinit&gt;|(?:[\$\p{L}_][\p{L}\d_\$]*))\(((?:[\[]*(?:Z|B|S|C|I|J|F|D|L(?:[\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*);))*)\)(?:(V)|[\[]*(Z|B|S|C|I|J|F|D)|[\[]*(?:(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;)))(?=[\s\t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-3rc-relaxed</key>
 		<dict>
@@ -2637,7 +2637,7 @@
 			<key>comment</key>
 			<string>Format: op {vCCCC .. vNNNN}, type@BBBB</string>
 			<key>match</key>
-			<string>^[\s\t]*(filled-new-array/range) {([vp](?:0|[1-9][\d]{0,3}|[1-5][\d]{4}|6[0-4][\d]{3}|65[0-4][\d]{2}|655[0-2][\d]|6553[0-5])\b) \.\. ([vp](?:0|[1-9][\d]{0,3}|[1-5][\d]{4}|6[0-4][\d]{3}|65[0-4][\d]{2}|655[0-2][\d]|6553[0-5])\b)},[\s\t]*[\[]+(?:(Z|B|S|C|I|J|F|D)|(L)([\p{L}_\$][\p{L}\d_\$]*(?:/[\p{L}_\$][\p{L}\d_\$]*)*)(;))(?=[\s\t]*(#.*)?$)</string>
+			<string>^[\s\t]*(filled-new-array/range) {([vp](?:0|[1-9][\d]{0,3}|[1-5][\d]{4}|6[0-4][\d]{3}|65[0-4][\d]{2}|655[0-2][\d]|6553[0-5])\b) \.\. ([vp](?:0|[1-9][\d]{0,3}|[1-5][\d]{4}|6[0-4][\d]{3}|65[0-4][\d]{2}|655[0-2][\d]|6553[0-5])\b)},[\s\t]*[\[]+(?:(Z|B|S|C|I|J|F|D)|(L)([\p{L}\p{N}_\$][\p{L}\d_\$]*(?:/[\p{L}\p{N}_\$][\p{L}\d_\$]*)*)(;))(?=[\s\t]*(#.*)?$)</string>
 		</dict>
 		<key>opcode-format-51l</key>
 		<dict>
